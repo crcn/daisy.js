@@ -1,0 +1,24 @@
+{
+    "name": "Daisy",
+    "description": "Abstracted MQ for rabbitmq",
+    "version": "0.0.1",
+    "author": "Craig Condon",
+    "repository": {
+        "type": "git",
+        "url": "http://github.com/spiceapps/daisy.git"
+    },
+    "directories" :   { "lib" : "./lib" },
+    "dependencies": {
+        "beanpole": "*",
+        "amqp":"*",
+        "cashew":"*",
+        "structr":"*"
+    },
+    
+    "main": "./lib/plugin.js",
+    
+    
+    "bin": {
+        "daisy": "./bin/server"
+    }
+}
