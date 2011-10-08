@@ -11,11 +11,16 @@ router.on({
 	'push hook1/ready': function()
 	{
 		console.log('hook 1 ready!');
-		
-		router.pull('hello/craig', function(response)
+
+		setInterval(function()
 		{
-			console.log(response);
-		});
+
+			router.pull('hello/craig', function(response)
+			{
+				console.log(response);
+			});
+
+		}, 200)
 	}
 	
 });
@@ -25,3 +30,4 @@ router.on({
 require('../../lib/plugin').plugin(router, {
 	name: 'hook2'
 })
+	router.push('init');

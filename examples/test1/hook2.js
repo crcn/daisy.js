@@ -20,3 +20,6 @@ router.on({
 require('../../lib/plugin').plugin(router, {
 	name: 'hook2'
 })
+
+
+router.push('init');
