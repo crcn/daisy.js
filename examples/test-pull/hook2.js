@@ -14,7 +14,6 @@ router.on({
 
 		setInterval(function()
 		{
-
 			router.pull('hello/craig', function(response)
 			{
 				console.log(response);
