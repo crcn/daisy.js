@@ -14,7 +14,8 @@
         "cashew":"*",
         "structr":"*",
         "colors":"*",
-        "vine":"*"
+        "vine":"*",
+        "underscore":"*"
     },
     
     "main": "./lib/index.js",
