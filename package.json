@@ -17,10 +17,13 @@
         "vine":"*"
     },
     
-    "main": "./lib/plugin.js",
-    
+    "main": "./lib/index.js",
     
     "bin": {
         "daisy": "./bin/server"
+    },
+    
+    "directories": {
+        "lib": "./lib/beans"
     }
 }
