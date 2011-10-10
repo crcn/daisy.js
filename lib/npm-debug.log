@@ -1,0 +1,329 @@
+info it worked if it ends with ok
+verbose cli [ 'node', '/usr/local/bin/npm', 'link' ]
+info using npm@1.0.94
+info using node@v0.4.12
+verbose config file /Users/craigcondon/.npmrc
+verbose config file /usr/local/etc/npmrc
+silly testEngine { name: 'daisy',
+silly testEngine   description: 'Abstracted MQ for rabbitmq',
+silly testEngine   version: '0.0.3',
+silly testEngine   author: { name: 'Craig Condon' },
+silly testEngine   repository: 
+silly testEngine    { type: 'git',
+silly testEngine      url: 'git://github.com/spiceapps/daisy.git' },
+silly testEngine   directories: { lib: './lib/beans' },
+silly testEngine   dependencies: 
+silly testEngine    { beanpole: '*',
+silly testEngine      amqp: '*',
+silly testEngine      cashew: '*',
+silly testEngine      structr: '*',
+silly testEngine      colors: '*',
+silly testEngine      vine: '*',
+silly testEngine      underscore: '*' },
+silly testEngine   main: './lib/index.js',
+silly testEngine   bin: { daisy: './bin/server' },
+silly testEngine   _npmUser: 
+silly testEngine    { name: 'architectd',
+silly testEngine      email: 'craig.j.condon@gmail.com' },
+silly testEngine   _id: 'daisy@0.0.3',
+silly testEngine   devDependencies: {},
+silly testEngine   engines: { node: '*' },
+silly testEngine   _engineSupported: true,
+silly testEngine   _npmVersion: '1.0.94',
+silly testEngine   _nodeVersion: 'v0.4.12',
+silly testEngine   _defaultsLoaded: true,
+silly testEngine   scripts: {} }
+verbose caching /Users/craigcondon/Developer/Public/daisy/package.json
+verbose loadDefaults daisy@0.0.3
+verbose link: build target /usr/local/lib/node_modules/daisy
+verbose install(where, what) [ '/Users/craigcondon/Developer/Public/daisy', [] ]
+verbose from cache /Users/craigcondon/Developer/Public/daisy/package.json
+verbose where, deps [ '/Users/craigcondon/Developer/Public/daisy',
+verbose where, deps   [ 'beanpole',
+verbose where, deps     'amqp',
+verbose where, deps     'cashew',
+verbose where, deps     'structr',
+verbose where, deps     'colors',
+verbose where, deps     'vine',
+verbose where, deps     'underscore' ] ]
+verbose from cache /Users/craigcondon/Developer/Public/daisy/package.json
+info preinstall daisy@0.0.3
+silly testEngine { name: 'amqp',
+silly testEngine   description: 'AMQP driver for node',
+silly testEngine   keywords: [ 'amqp' ],
+silly testEngine   version: '0.1.0',
+silly testEngine   preferGlobal: true,
+silly testEngine   author: { name: 'Ryan Dahl' },
+silly testEngine   contributors: 
+silly testEngine    [ { name: 'Vasili Sviridov' },
+silly testEngine      { name: 'Theo Schlossnagle' },
+silly testEngine      { name: 'Vincent Desjardins' },
+silly testEngine      { name: 'Liang-Chi Hsieh' },
+silly testEngine      { name: 'Tim Baga' },
+silly testEngine      { name: 'Stéphane Alnet' },
+silly testEngine      { name: 'Alen Mujezinovic' },
+silly testEngine      { name: 'Michael Bridgen' },
+silly testEngine      { name: 'Chris Bond' } ],
+silly testEngine   repository: 
+silly testEngine    { type: 'git',
+silly testEngine      url: 'git://github.com/postwait/node-amqp.git' },
+silly testEngine   bugs: { url: 'http://github.com/postwait/node-amqp/issues' },
+silly testEngine   main: './amqp',
+silly testEngine   engines: { node: '0.4 || 0.5' },
+silly testEngine   licenses: 
+silly testEngine    [ { type: 'MIT',
+silly testEngine        url: 'http://github.com/postwait/node-amqp/raw/master/LICENSE-MIT' } ],
+silly testEngine   _npmUser: 
+silly testEngine    { name: 'architectd',
+silly testEngine      email: 'craig.j.condon@gmail.com' },
+silly testEngine   _id: 'amqp@0.1.0',
+silly testEngine   dependencies: {},
+silly testEngine   devDependencies: {},
+silly testEngine   _engineSupported: true,
+silly testEngine   _npmVersion: '1.0.94',
+silly testEngine   _nodeVersion: 'v0.4.12',
+silly testEngine   _defaultsLoaded: true }
+verbose caching /Users/craigcondon/Developer/Public/daisy/node_modules/amqp/package.json
+verbose loadDefaults amqp@0.1.0
+silly testEngine { name: 'beanpole',
+silly testEngine   description: 'Routing on Steroids',
+silly testEngine   version: '0.1.10',
+silly testEngine   author: { name: 'Craig Condon' },
+silly testEngine   repository: 
+silly testEngine    { type: 'git',
+silly testEngine      url: 'git://github.com/spiceapps/beanpole.git' },
+silly testEngine   directories: { lib: './lib' },
+silly testEngine   dependencies: 
+silly testEngine    { sk: '*',
+silly testEngine      vine: '*',
+silly testEngine      mime: '*',
+silly testEngine      gumbo: '*',
+silly testEngine      cashew: '*',
+silly testEngine      'socket.io': '*',
+silly testEngine      'socket.io-client': '*',
+silly testEngine      structr: '*',
+silly testEngine      express: '*',
+silly testEngine      vows: '*' },
+silly testEngine   main: './lib/node/index.js',
+silly testEngine   _npmUser: 
+silly testEngine    { name: 'architectd',
+silly testEngine      email: 'craig.j.condon@gmail.com' },
+silly testEngine   _id: 'beanpole@0.1.10',
+silly testEngine   devDependencies: {},
+silly testEngine   engines: { node: '*' },
+silly testEngine   _engineSupported: true,
+silly testEngine   _npmVersion: '1.0.94',
+silly testEngine   _nodeVersion: 'v0.4.12',
+silly testEngine   _defaultsLoaded: true }
+verbose caching /Users/craigcondon/Developer/Public/daisy/node_modules/beanpole/package.json
+verbose loadDefaults beanpole@0.1.10
+silly testEngine { name: 'cashew',
+silly testEngine   description: 'ID generator',
+silly testEngine   version: '0.0.5',
+silly testEngine   author: { name: 'Craig Condon' },
+silly testEngine   repository: 
+silly testEngine    { type: 'git',
+silly testEngine      url: 'git://github.com/spiceapps/cashew.git' },
+silly testEngine   dependencies: { structr: '*' },
+silly testEngine   main: './lib/index.js',
+silly testEngine   _npmUser: 
+silly testEngine    { name: 'architectd',
+silly testEngine      email: 'craig.j.condon@gmail.com' },
+silly testEngine   _id: 'cashew@0.0.5',
+silly testEngine   devDependencies: {},
+silly testEngine   engines: { node: '*' },
+silly testEngine   _engineSupported: true,
+silly testEngine   _npmVersion: '1.0.94',
+silly testEngine   _nodeVersion: 'v0.4.12',
+silly testEngine   _defaultsLoaded: true }
+verbose caching /Users/craigcondon/Developer/Public/daisy/node_modules/cashew/package.json
+verbose loadDefaults cashew@0.0.5
+silly testEngine { name: 'colors',
+silly testEngine   description: 'get colors in your node.js console like what',
+silly testEngine   version: '0.5.1',
+silly testEngine   author: { name: 'Marak Squires' },
+silly testEngine   repository: 
+silly testEngine    { type: 'git',
+silly testEngine      url: 'git://github.com/Marak/colors.js.git' },
+silly testEngine   engines: { node: '>=0.1.90' },
+silly testEngine   main: 'colors',
+silly testEngine   _npmUser: 
+silly testEngine    { name: 'architectd',
+silly testEngine      email: 'craig.j.condon@gmail.com' },
+silly testEngine   _id: 'colors@0.5.1',
+silly testEngine   dependencies: {},
+silly testEngine   devDependencies: {},
+silly testEngine   _engineSupported: true,
+silly testEngine   _npmVersion: '1.0.94',
+silly testEngine   _nodeVersion: 'v0.4.12',
+silly testEngine   _defaultsLoaded: true }
+verbose caching /Users/craigcondon/Developer/Public/daisy/node_modules/colors/package.json
+verbose loadDefaults colors@0.5.1
+silly testEngine { name: 'structr',
+silly testEngine   description: 'Clean OO structure for Javascript.',
+silly testEngine   version: '0.0.10',
+silly testEngine   author: { name: 'Craig Condon' },
+silly testEngine   repository: 
+silly testEngine    { type: 'git',
+silly testEngine      url: 'git://github.com/spiceapps/Structr.git' },
+silly testEngine   main: './structr.js',
+silly testEngine   _npmUser: 
+silly testEngine    { name: 'architectd',
+silly testEngine      email: 'craig.j.condon@gmail.com' },
+silly testEngine   _id: 'structr@0.0.10',
+silly testEngine   dependencies: {},
+silly testEngine   devDependencies: {},
+silly testEngine   engines: { node: '*' },
+silly testEngine   _engineSupported: true,
+silly testEngine   _npmVersion: '1.0.94',
+silly testEngine   _nodeVersion: 'v0.4.12',
+silly testEngine   _defaultsLoaded: true }
+verbose caching /Users/craigcondon/Developer/Public/daisy/node_modules/structr/package.json
+verbose loadDefaults structr@0.0.10
+silly testEngine { name: 'underscore',
+silly testEngine   description: 'JavaScript\'s functional programming helper library.',
+silly testEngine   homepage: 'http://documentcloud.github.com/underscore/',
+silly testEngine   keywords: [ 'util', 'functional', 'server', 'client', 'browser' ],
+silly testEngine   author: 
+silly testEngine    { name: 'Jeremy Ashkenas',
+silly testEngine      email: 'jeremy@documentcloud.org' },
+silly testEngine   contributors: [],
+silly testEngine   dependencies: {},
+silly testEngine   repository: 
+silly testEngine    { type: 'git',
+silly testEngine      url: 'git://github.com/documentcloud/underscore.git' },
+silly testEngine   main: 'underscore.js',
+silly testEngine   version: '1.2.0',
+silly testEngine   _npmUser: 
+silly testEngine    { name: 'architectd',
+silly testEngine      email: 'craig.j.condon@gmail.com' },
+silly testEngine   _id: 'underscore@1.2.0',
+silly testEngine   devDependencies: {},
+silly testEngine   engines: { node: '*' },
+silly testEngine   _engineSupported: true,
+silly testEngine   _npmVersion: '1.0.94',
+silly testEngine   _nodeVersion: 'v0.4.12',
+silly testEngine   _defaultsLoaded: true }
+verbose caching /Users/craigcondon/Developer/Public/daisy/node_modules/underscore/package.json
+verbose loadDefaults underscore@1.2.0
+silly testEngine { name: 'vine',
+silly testEngine   description: 'API builder',
+silly testEngine   version: '0.0.9',
+silly testEngine   author: { name: 'Craig Condon' },
+silly testEngine   repository: 
+silly testEngine    { type: 'git',
+silly testEngine      url: 'git://github.com/spiceapps/vine.git' },
+silly testEngine   main: './index.js',
+silly testEngine   _npmUser: 
+silly testEngine    { name: 'architectd',
+silly testEngine      email: 'craig.j.condon@gmail.com' },
+silly testEngine   _id: 'vine@0.0.9',
+silly testEngine   dependencies: {},
+silly testEngine   devDependencies: {},
+silly testEngine   engines: { node: '*' },
+silly testEngine   _engineSupported: true,
+silly testEngine   _npmVersion: '1.0.94',
+silly testEngine   _nodeVersion: 'v0.4.12',
+silly testEngine   _defaultsLoaded: true }
+verbose caching /Users/craigcondon/Developer/Public/daisy/node_modules/vine/package.json
+verbose loadDefaults vine@0.0.9
+verbose from cache /Users/craigcondon/Developer/Public/daisy/package.json
+verbose into /Users/craigcondon/Developer/Public/daisy [ 'beanpole@*',
+verbose into /Users/craigcondon/Developer/Public/daisy   'amqp@*',
+verbose into /Users/craigcondon/Developer/Public/daisy   'cashew@*',
+verbose into /Users/craigcondon/Developer/Public/daisy   'structr@*',
+verbose into /Users/craigcondon/Developer/Public/daisy   'colors@*',
+verbose into /Users/craigcondon/Developer/Public/daisy   'vine@*',
+verbose into /Users/craigcondon/Developer/Public/daisy   'underscore@*' ]
+verbose from cache /Users/craigcondon/Developer/Public/daisy/node_modules/amqp/package.json
+verbose from cache /Users/craigcondon/Developer/Public/daisy/node_modules/beanpole/package.json
+verbose from cache /Users/craigcondon/Developer/Public/daisy/node_modules/cashew/package.json
+verbose from cache /Users/craigcondon/Developer/Public/daisy/node_modules/colors/package.json
+verbose from cache /Users/craigcondon/Developer/Public/daisy/node_modules/structr/package.json
+verbose from cache /Users/craigcondon/Developer/Public/daisy/node_modules/underscore/package.json
+verbose from cache /Users/craigcondon/Developer/Public/daisy/node_modules/vine/package.json
+verbose already installed in /Users/craigcondon/Developer/Public/daisy skipping beanpole@*
+verbose already installed in /Users/craigcondon/Developer/Public/daisy skipping amqp@*
+verbose already installed in /Users/craigcondon/Developer/Public/daisy skipping cashew@*
+verbose already installed in /Users/craigcondon/Developer/Public/daisy skipping structr@*
+verbose already installed in /Users/craigcondon/Developer/Public/daisy skipping colors@*
+verbose already installed in /Users/craigcondon/Developer/Public/daisy skipping vine@*
+verbose already installed in /Users/craigcondon/Developer/Public/daisy skipping underscore@*
+silly resolved []
+info build /Users/craigcondon/Developer/Public/daisy
+verbose from cache /Users/craigcondon/Developer/Public/daisy/package.json
+verbose linkStuff [ false,
+verbose linkStuff   false,
+verbose linkStuff   false,
+verbose linkStuff   '/Users/craigcondon/Developer/Public' ]
+info linkStuff daisy@0.0.3
+verbose linkBins daisy@0.0.3
+verbose linkMans daisy@0.0.3
+verbose rebuildBundles daisy@0.0.3
+verbose rebuildBundles [ '.DS_Store',
+verbose rebuildBundles   'amqp',
+verbose rebuildBundles   'beanpole',
+verbose rebuildBundles   'cashew',
+verbose rebuildBundles   'colors',
+verbose rebuildBundles   'structr',
+verbose rebuildBundles   'underscore',
+verbose rebuildBundles   'vine' ]
+info install daisy@0.0.3
+info postinstall daisy@0.0.3
+info build /usr/local/lib/node_modules/daisy
+silly testEngine { name: 'daisy',
+silly testEngine   description: 'Abstracted MQ for rabbitmq',
+silly testEngine   version: '0.0.3',
+silly testEngine   author: { name: 'Craig Condon' },
+silly testEngine   repository: 
+silly testEngine    { type: 'git',
+silly testEngine      url: 'git://github.com/spiceapps/daisy.git' },
+silly testEngine   directories: { lib: './lib/beans' },
+silly testEngine   dependencies: 
+silly testEngine    { beanpole: '*',
+silly testEngine      amqp: '*',
+silly testEngine      cashew: '*',
+silly testEngine      structr: '*',
+silly testEngine      colors: '*',
+silly testEngine      vine: '*',
+silly testEngine      underscore: '*' },
+silly testEngine   main: './lib/index.js',
+silly testEngine   bin: { daisy: './bin/server' },
+silly testEngine   _npmUser: 
+silly testEngine    { name: 'architectd',
+silly testEngine      email: 'craig.j.condon@gmail.com' },
+silly testEngine   _id: 'daisy@0.0.3',
+silly testEngine   devDependencies: {},
+silly testEngine   engines: { node: '*' },
+silly testEngine   _engineSupported: true,
+silly testEngine   _npmVersion: '1.0.94',
+silly testEngine   _nodeVersion: 'v0.4.12',
+silly testEngine   _defaultsLoaded: true }
+verbose caching /usr/local/lib/node_modules/daisy/package.json
+verbose loadDefaults daisy@0.0.3
+verbose linkStuff [ true,
+verbose linkStuff   '/usr/local/lib/node_modules',
+verbose linkStuff   true,
+verbose linkStuff   '/usr/local/lib/node_modules' ]
+info linkStuff daisy@0.0.3
+verbose linkBins daisy@0.0.3
+verbose bins linking [ { daisy: './bin/server' }, '/usr/local/bin', true ]
+verbose linkMans daisy@0.0.3
+ERR! Error: Refusing to delete: /usr/local/bin/daisy not in /usr/local/lib/node_modules/daisy
+ERR!     at clobberFail (/usr/local/lib/node_modules/npm/node_modules/rimraf/rimraf.js:107:12)
+ERR!     at next (/usr/local/lib/node_modules/npm/node_modules/rimraf/rimraf.js:94:42)
+ERR!     at /usr/local/lib/node_modules/npm/node_modules/rimraf/rimraf.js:102:12
+ERR!     at cb (/usr/local/lib/node_modules/npm/node_modules/graceful-fs/graceful-fs.js:36:9)
+ERR! Report this *entire* log at:
+ERR!     <http://github.com/isaacs/npm/issues>
+ERR! or email it to:
+ERR!     <npm-@googlegroups.com>
+ERR! 
+ERR! System Darwin 10.7.0
+ERR! command "node" "/usr/local/bin/npm" "link"
+ERR! cwd /Users/craigcondon/Developer/Public/daisy/lib
+ERR! node -v v0.4.12
+ERR! npm -v 1.0.94
+ERR! path /usr/local/bin/daisy
+ERR! code EEXIST
+verbose exit [ 1, true ]
