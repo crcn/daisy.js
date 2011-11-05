@@ -70,27 +70,27 @@ silly testEngine   _defaultsLoaded: true,
 silly testEngine   path: '/Users/craig/Dropbox/Developer/Public/daisy' }
 verbose caching package.json
 verbose loadDefaults daisy@0.0.7
-verbose pack /Users/craig/Dropbox/Developer/Public/daisy /var/folders/n1/r96x64mx6jzcbzkbz1ddrw6r0000gn/T/npm-1320526662830/1320526662830-0.6595115794334561/tmp.tgz
-verbose mkdir (expected) error ENOENT, No such file or directory '/var/folders/n1/r96x64mx6jzcbzkbz1ddrw6r0000gn/T/npm-1320526662830'
-verbose mkdir (expected) error ENOENT, No such file or directory '/var/folders/n1/r96x64mx6jzcbzkbz1ddrw6r0000gn/T/npm-1320526662830/1320526662830-0.6595115794334561'
-verbose mkdir done: /var/folders/n1/r96x64mx6jzcbzkbz1ddrw6r0000gn/T/npm-1320526662830/1320526662830-0.6595115794334561 755
-verbose mkdir'ed /var/folders/n1/r96x64mx6jzcbzkbz1ddrw6r0000gn/T/npm-1320526662830/1320526662830-0.6595115794334561
+verbose pack /Users/craig/Dropbox/Developer/Public/daisy /var/folders/n1/r96x64mx6jzcbzkbz1ddrw6r0000gn/T/npm-1320526983365/1320526983365-0.39399305498227477/tmp.tgz
+verbose mkdir (expected) error ENOENT, No such file or directory '/var/folders/n1/r96x64mx6jzcbzkbz1ddrw6r0000gn/T/npm-1320526983365'
+verbose mkdir (expected) error ENOENT, No such file or directory '/var/folders/n1/r96x64mx6jzcbzkbz1ddrw6r0000gn/T/npm-1320526983365/1320526983365-0.39399305498227477'
+verbose mkdir done: /var/folders/n1/r96x64mx6jzcbzkbz1ddrw6r0000gn/T/npm-1320526983365/1320526983365-0.39399305498227477 755
+verbose mkdir'ed /var/folders/n1/r96x64mx6jzcbzkbz1ddrw6r0000gn/T/npm-1320526983365/1320526983365-0.39399305498227477
 verbose tar about to write tar and gzip it.
 silly tar args [ '-czvf', '-', '-T', '-' ]
 silly spawning [ 'tar',
 silly spawning   [ '-czvf', '-', '-T', '-' ],
 silly spawning   '/Users/craig/Dropbox/Developer/Public' ]
-verbose mkdir (expected) error ENOENT, No such file or directory '/var/folders/n1/r96x64mx6jzcbzkbz1ddrw6r0000gn/T/npm-1320526662830/1320526662830-0.6595115794334561/contents'
-verbose mkdir (expected) error ENOENT, No such file or directory '/var/folders/n1/r96x64mx6jzcbzkbz1ddrw6r0000gn/T/npm-1320526662830/1320526662830-0.6595115794334561/contents/___package.npm'
-verbose mkdir done: /var/folders/n1/r96x64mx6jzcbzkbz1ddrw6r0000gn/T/npm-1320526662830/1320526662830-0.6595115794334561/contents/___package.npm 755
+verbose mkdir (expected) error ENOENT, No such file or directory '/var/folders/n1/r96x64mx6jzcbzkbz1ddrw6r0000gn/T/npm-1320526983365/1320526983365-0.39399305498227477/contents'
+verbose mkdir (expected) error ENOENT, No such file or directory '/var/folders/n1/r96x64mx6jzcbzkbz1ddrw6r0000gn/T/npm-1320526983365/1320526983365-0.39399305498227477/contents/___package.npm'
+verbose mkdir done: /var/folders/n1/r96x64mx6jzcbzkbz1ddrw6r0000gn/T/npm-1320526983365/1320526983365-0.39399305498227477/contents/___package.npm 755
 verbose unpack_ uid, gid [ undefined, undefined ]
-verbose unpackTarget /var/folders/n1/r96x64mx6jzcbzkbz1ddrw6r0000gn/T/npm-1320526662830/1320526662830-0.6595115794334561/contents/package
+verbose unpackTarget /var/folders/n1/r96x64mx6jzcbzkbz1ddrw6r0000gn/T/npm-1320526983365/1320526983365-0.39399305498227477/contents/package
 silly gunzTarPerm modes [ '755', '644' ]
 silly spawning [ 'tar',
 silly spawning   [ '-zmvxpf',
-silly spawning     '/var/folders/n1/r96x64mx6jzcbzkbz1ddrw6r0000gn/T/npm-1320526662830/1320526662830-0.6595115794334561/tmp.tgz',
+silly spawning     '/var/folders/n1/r96x64mx6jzcbzkbz1ddrw6r0000gn/T/npm-1320526983365/1320526983365-0.39399305498227477/tmp.tgz',
 silly spawning     '-o' ],
-silly spawning   '/var/folders/n1/r96x64mx6jzcbzkbz1ddrw6r0000gn/T/npm-1320526662830/1320526662830-0.6595115794334561/contents/___package.npm' ]
+silly spawning   '/var/folders/n1/r96x64mx6jzcbzkbz1ddrw6r0000gn/T/npm-1320526983365/1320526983365-0.39399305498227477/contents/___package.npm' ]
 silly tar err x daisy/.cupboard
 silly tar err x daisy/.gitignore
 silly tar err x daisy/daisy.tmproj
@@ -115,46 +115,46 @@ silly tar err x daisy/lib/beans/hooks.rabbitmq/bucket.js
 silly tar err x daisy/lib/beans/hooks.rabbitmq/index.js
 silly tar err x daisy/lib/beans/hooks.rabbitmq/transport.js
 silly tar err x daisy/lib/beans/hooks.rabbitmq/utils.js
-silly asyncMap in gTP /var/folders/n1/r96x64mx6jzcbzkbz1ddrw6r0000gn/T/npm-1320526662830/1320526662830-0.6595115794334561/contents/___package.npm/daisy
-silly asyncMap in gTP /var/folders/n1/r96x64mx6jzcbzkbz1ddrw6r0000gn/T/npm-1320526662830/1320526662830-0.6595115794334561/contents/___package.npm/daisy/.cupboard
-silly asyncMap in gTP /var/folders/n1/r96x64mx6jzcbzkbz1ddrw6r0000gn/T/npm-1320526662830/1320526662830-0.6595115794334561/contents/___package.npm/daisy/.gitignore
-silly asyncMap in gTP /var/folders/n1/r96x64mx6jzcbzkbz1ddrw6r0000gn/T/npm-1320526662830/1320526662830-0.6595115794334561/contents/___package.npm/daisy/daisy.tmproj
-silly asyncMap in gTP /var/folders/n1/r96x64mx6jzcbzkbz1ddrw6r0000gn/T/npm-1320526662830/1320526662830-0.6595115794334561/contents/___package.npm/daisy/package.json
-silly asyncMap in gTP /var/folders/n1/r96x64mx6jzcbzkbz1ddrw6r0000gn/T/npm-1320526662830/1320526662830-0.6595115794334561/contents/___package.npm/daisy/README.md
-silly asyncMap in gTP /var/folders/n1/r96x64mx6jzcbzkbz1ddrw6r0000gn/T/npm-1320526662830/1320526662830-0.6595115794334561/contents/___package.npm/daisy/bin
-silly asyncMap in gTP /var/folders/n1/r96x64mx6jzcbzkbz1ddrw6r0000gn/T/npm-1320526662830/1320526662830-0.6595115794334561/contents/___package.npm/daisy/bin/server
-silly asyncMap in gTP /var/folders/n1/r96x64mx6jzcbzkbz1ddrw6r0000gn/T/npm-1320526662830/1320526662830-0.6595115794334561/contents/___package.npm/daisy/examples
-silly asyncMap in gTP /var/folders/n1/r96x64mx6jzcbzkbz1ddrw6r0000gn/T/npm-1320526662830/1320526662830-0.6595115794334561/contents/___package.npm/daisy/examples/test-middleware
-silly asyncMap in gTP /var/folders/n1/r96x64mx6jzcbzkbz1ddrw6r0000gn/T/npm-1320526662830/1320526662830-0.6595115794334561/contents/___package.npm/daisy/examples/test-middleware/hook1.js
-silly asyncMap in gTP /var/folders/n1/r96x64mx6jzcbzkbz1ddrw6r0000gn/T/npm-1320526662830/1320526662830-0.6595115794334561/contents/___package.npm/daisy/examples/test-middleware/hook2.js
-silly asyncMap in gTP /var/folders/n1/r96x64mx6jzcbzkbz1ddrw6r0000gn/T/npm-1320526662830/1320526662830-0.6595115794334561/contents/___package.npm/daisy/examples/test-pull
-silly asyncMap in gTP /var/folders/n1/r96x64mx6jzcbzkbz1ddrw6r0000gn/T/npm-1320526662830/1320526662830-0.6595115794334561/contents/___package.npm/daisy/examples/test-pull/hook1.js
-silly asyncMap in gTP /var/folders/n1/r96x64mx6jzcbzkbz1ddrw6r0000gn/T/npm-1320526662830/1320526662830-0.6595115794334561/contents/___package.npm/daisy/examples/test-pull/hook2.js
-silly asyncMap in gTP /var/folders/n1/r96x64mx6jzcbzkbz1ddrw6r0000gn/T/npm-1320526662830/1320526662830-0.6595115794334561/contents/___package.npm/daisy/examples/test1
-silly asyncMap in gTP /var/folders/n1/r96x64mx6jzcbzkbz1ddrw6r0000gn/T/npm-1320526662830/1320526662830-0.6595115794334561/contents/___package.npm/daisy/examples/test1/hook1.js
-silly asyncMap in gTP /var/folders/n1/r96x64mx6jzcbzkbz1ddrw6r0000gn/T/npm-1320526662830/1320526662830-0.6595115794334561/contents/___package.npm/daisy/examples/test1/hook2.js
-silly asyncMap in gTP /var/folders/n1/r96x64mx6jzcbzkbz1ddrw6r0000gn/T/npm-1320526662830/1320526662830-0.6595115794334561/contents/___package.npm/daisy/lib
-silly asyncMap in gTP /var/folders/n1/r96x64mx6jzcbzkbz1ddrw6r0000gn/T/npm-1320526662830/1320526662830-0.6595115794334561/contents/___package.npm/daisy/lib/index.js
-silly asyncMap in gTP /var/folders/n1/r96x64mx6jzcbzkbz1ddrw6r0000gn/T/npm-1320526662830/1320526662830-0.6595115794334561/contents/___package.npm/daisy/lib/server
-silly asyncMap in gTP /var/folders/n1/r96x64mx6jzcbzkbz1ddrw6r0000gn/T/npm-1320526662830/1320526662830-0.6595115794334561/contents/___package.npm/daisy/lib/server/index.js
-silly asyncMap in gTP /var/folders/n1/r96x64mx6jzcbzkbz1ddrw6r0000gn/T/npm-1320526662830/1320526662830-0.6595115794334561/contents/___package.npm/daisy/lib/beans
-silly asyncMap in gTP /var/folders/n1/r96x64mx6jzcbzkbz1ddrw6r0000gn/T/npm-1320526662830/1320526662830-0.6595115794334561/contents/___package.npm/daisy/lib/beans/hooks.core
-silly asyncMap in gTP /var/folders/n1/r96x64mx6jzcbzkbz1ddrw6r0000gn/T/npm-1320526662830/1320526662830-0.6595115794334561/contents/___package.npm/daisy/lib/beans/hooks.core/index.js
-silly asyncMap in gTP /var/folders/n1/r96x64mx6jzcbzkbz1ddrw6r0000gn/T/npm-1320526662830/1320526662830-0.6595115794334561/contents/___package.npm/daisy/lib/beans/hooks.core/transactions.js
-silly asyncMap in gTP /var/folders/n1/r96x64mx6jzcbzkbz1ddrw6r0000gn/T/npm-1320526662830/1320526662830-0.6595115794334561/contents/___package.npm/daisy/lib/beans/hooks.core/transports.js
-silly asyncMap in gTP /var/folders/n1/r96x64mx6jzcbzkbz1ddrw6r0000gn/T/npm-1320526662830/1320526662830-0.6595115794334561/contents/___package.npm/daisy/lib/beans/hooks.core/utils.js
-silly asyncMap in gTP /var/folders/n1/r96x64mx6jzcbzkbz1ddrw6r0000gn/T/npm-1320526662830/1320526662830-0.6595115794334561/contents/___package.npm/daisy/lib/beans/hooks.jsonp
-silly asyncMap in gTP /var/folders/n1/r96x64mx6jzcbzkbz1ddrw6r0000gn/T/npm-1320526662830/1320526662830-0.6595115794334561/contents/___package.npm/daisy/lib/beans/hooks.jsonp/index.js
-silly asyncMap in gTP /var/folders/n1/r96x64mx6jzcbzkbz1ddrw6r0000gn/T/npm-1320526662830/1320526662830-0.6595115794334561/contents/___package.npm/daisy/lib/beans/hooks.jsonp/transport.js
-silly asyncMap in gTP /var/folders/n1/r96x64mx6jzcbzkbz1ddrw6r0000gn/T/npm-1320526662830/1320526662830-0.6595115794334561/contents/___package.npm/daisy/lib/beans/hooks.rabbitmq
-silly asyncMap in gTP /var/folders/n1/r96x64mx6jzcbzkbz1ddrw6r0000gn/T/npm-1320526662830/1320526662830-0.6595115794334561/contents/___package.npm/daisy/lib/beans/hooks.rabbitmq/bucket.js
-silly asyncMap in gTP /var/folders/n1/r96x64mx6jzcbzkbz1ddrw6r0000gn/T/npm-1320526662830/1320526662830-0.6595115794334561/contents/___package.npm/daisy/lib/beans/hooks.rabbitmq/index.js
-silly asyncMap in gTP /var/folders/n1/r96x64mx6jzcbzkbz1ddrw6r0000gn/T/npm-1320526662830/1320526662830-0.6595115794334561/contents/___package.npm/daisy/lib/beans/hooks.rabbitmq/transport.js
-silly asyncMap in gTP /var/folders/n1/r96x64mx6jzcbzkbz1ddrw6r0000gn/T/npm-1320526662830/1320526662830-0.6595115794334561/contents/___package.npm/daisy/lib/beans/hooks.rabbitmq/utils.js
-verbose gunzed /var/folders/n1/r96x64mx6jzcbzkbz1ddrw6r0000gn/T/npm-1320526662830/1320526662830-0.6595115794334561/contents/___package.npm/daisy
-verbose rm'ed /var/folders/n1/r96x64mx6jzcbzkbz1ddrw6r0000gn/T/npm-1320526662830/1320526662830-0.6595115794334561/contents/package
-verbose renamed [ '/var/folders/n1/r96x64mx6jzcbzkbz1ddrw6r0000gn/T/npm-1320526662830/1320526662830-0.6595115794334561/contents/___package.npm/daisy',
-verbose renamed   '/var/folders/n1/r96x64mx6jzcbzkbz1ddrw6r0000gn/T/npm-1320526662830/1320526662830-0.6595115794334561/contents/package' ]
+silly asyncMap in gTP /var/folders/n1/r96x64mx6jzcbzkbz1ddrw6r0000gn/T/npm-1320526983365/1320526983365-0.39399305498227477/contents/___package.npm/daisy
+silly asyncMap in gTP /var/folders/n1/r96x64mx6jzcbzkbz1ddrw6r0000gn/T/npm-1320526983365/1320526983365-0.39399305498227477/contents/___package.npm/daisy/.cupboard
+silly asyncMap in gTP /var/folders/n1/r96x64mx6jzcbzkbz1ddrw6r0000gn/T/npm-1320526983365/1320526983365-0.39399305498227477/contents/___package.npm/daisy/.gitignore
+silly asyncMap in gTP /var/folders/n1/r96x64mx6jzcbzkbz1ddrw6r0000gn/T/npm-1320526983365/1320526983365-0.39399305498227477/contents/___package.npm/daisy/daisy.tmproj
+silly asyncMap in gTP /var/folders/n1/r96x64mx6jzcbzkbz1ddrw6r0000gn/T/npm-1320526983365/1320526983365-0.39399305498227477/contents/___package.npm/daisy/package.json
+silly asyncMap in gTP /var/folders/n1/r96x64mx6jzcbzkbz1ddrw6r0000gn/T/npm-1320526983365/1320526983365-0.39399305498227477/contents/___package.npm/daisy/README.md
+silly asyncMap in gTP /var/folders/n1/r96x64mx6jzcbzkbz1ddrw6r0000gn/T/npm-1320526983365/1320526983365-0.39399305498227477/contents/___package.npm/daisy/bin
+silly asyncMap in gTP /var/folders/n1/r96x64mx6jzcbzkbz1ddrw6r0000gn/T/npm-1320526983365/1320526983365-0.39399305498227477/contents/___package.npm/daisy/bin/server
+silly asyncMap in gTP /var/folders/n1/r96x64mx6jzcbzkbz1ddrw6r0000gn/T/npm-1320526983365/1320526983365-0.39399305498227477/contents/___package.npm/daisy/examples
+silly asyncMap in gTP /var/folders/n1/r96x64mx6jzcbzkbz1ddrw6r0000gn/T/npm-1320526983365/1320526983365-0.39399305498227477/contents/___package.npm/daisy/examples/test-middleware
+silly asyncMap in gTP /var/folders/n1/r96x64mx6jzcbzkbz1ddrw6r0000gn/T/npm-1320526983365/1320526983365-0.39399305498227477/contents/___package.npm/daisy/examples/test-middleware/hook1.js
+silly asyncMap in gTP /var/folders/n1/r96x64mx6jzcbzkbz1ddrw6r0000gn/T/npm-1320526983365/1320526983365-0.39399305498227477/contents/___package.npm/daisy/examples/test-middleware/hook2.js
+silly asyncMap in gTP /var/folders/n1/r96x64mx6jzcbzkbz1ddrw6r0000gn/T/npm-1320526983365/1320526983365-0.39399305498227477/contents/___package.npm/daisy/examples/test-pull
+silly asyncMap in gTP /var/folders/n1/r96x64mx6jzcbzkbz1ddrw6r0000gn/T/npm-1320526983365/1320526983365-0.39399305498227477/contents/___package.npm/daisy/examples/test-pull/hook1.js
+silly asyncMap in gTP /var/folders/n1/r96x64mx6jzcbzkbz1ddrw6r0000gn/T/npm-1320526983365/1320526983365-0.39399305498227477/contents/___package.npm/daisy/examples/test-pull/hook2.js
+silly asyncMap in gTP /var/folders/n1/r96x64mx6jzcbzkbz1ddrw6r0000gn/T/npm-1320526983365/1320526983365-0.39399305498227477/contents/___package.npm/daisy/examples/test1
+silly asyncMap in gTP /var/folders/n1/r96x64mx6jzcbzkbz1ddrw6r0000gn/T/npm-1320526983365/1320526983365-0.39399305498227477/contents/___package.npm/daisy/examples/test1/hook1.js
+silly asyncMap in gTP /var/folders/n1/r96x64mx6jzcbzkbz1ddrw6r0000gn/T/npm-1320526983365/1320526983365-0.39399305498227477/contents/___package.npm/daisy/examples/test1/hook2.js
+silly asyncMap in gTP /var/folders/n1/r96x64mx6jzcbzkbz1ddrw6r0000gn/T/npm-1320526983365/1320526983365-0.39399305498227477/contents/___package.npm/daisy/lib
+silly asyncMap in gTP /var/folders/n1/r96x64mx6jzcbzkbz1ddrw6r0000gn/T/npm-1320526983365/1320526983365-0.39399305498227477/contents/___package.npm/daisy/lib/index.js
+silly asyncMap in gTP /var/folders/n1/r96x64mx6jzcbzkbz1ddrw6r0000gn/T/npm-1320526983365/1320526983365-0.39399305498227477/contents/___package.npm/daisy/lib/server
+silly asyncMap in gTP /var/folders/n1/r96x64mx6jzcbzkbz1ddrw6r0000gn/T/npm-1320526983365/1320526983365-0.39399305498227477/contents/___package.npm/daisy/lib/server/index.js
+silly asyncMap in gTP /var/folders/n1/r96x64mx6jzcbzkbz1ddrw6r0000gn/T/npm-1320526983365/1320526983365-0.39399305498227477/contents/___package.npm/daisy/lib/beans
+silly asyncMap in gTP /var/folders/n1/r96x64mx6jzcbzkbz1ddrw6r0000gn/T/npm-1320526983365/1320526983365-0.39399305498227477/contents/___package.npm/daisy/lib/beans/hooks.core
+silly asyncMap in gTP /var/folders/n1/r96x64mx6jzcbzkbz1ddrw6r0000gn/T/npm-1320526983365/1320526983365-0.39399305498227477/contents/___package.npm/daisy/lib/beans/hooks.core/index.js
+silly asyncMap in gTP /var/folders/n1/r96x64mx6jzcbzkbz1ddrw6r0000gn/T/npm-1320526983365/1320526983365-0.39399305498227477/contents/___package.npm/daisy/lib/beans/hooks.core/transactions.js
+silly asyncMap in gTP /var/folders/n1/r96x64mx6jzcbzkbz1ddrw6r0000gn/T/npm-1320526983365/1320526983365-0.39399305498227477/contents/___package.npm/daisy/lib/beans/hooks.core/transports.js
+silly asyncMap in gTP /var/folders/n1/r96x64mx6jzcbzkbz1ddrw6r0000gn/T/npm-1320526983365/1320526983365-0.39399305498227477/contents/___package.npm/daisy/lib/beans/hooks.core/utils.js
+silly asyncMap in gTP /var/folders/n1/r96x64mx6jzcbzkbz1ddrw6r0000gn/T/npm-1320526983365/1320526983365-0.39399305498227477/contents/___package.npm/daisy/lib/beans/hooks.jsonp
+silly asyncMap in gTP /var/folders/n1/r96x64mx6jzcbzkbz1ddrw6r0000gn/T/npm-1320526983365/1320526983365-0.39399305498227477/contents/___package.npm/daisy/lib/beans/hooks.jsonp/index.js
+silly asyncMap in gTP /var/folders/n1/r96x64mx6jzcbzkbz1ddrw6r0000gn/T/npm-1320526983365/1320526983365-0.39399305498227477/contents/___package.npm/daisy/lib/beans/hooks.jsonp/transport.js
+silly asyncMap in gTP /var/folders/n1/r96x64mx6jzcbzkbz1ddrw6r0000gn/T/npm-1320526983365/1320526983365-0.39399305498227477/contents/___package.npm/daisy/lib/beans/hooks.rabbitmq
+silly asyncMap in gTP /var/folders/n1/r96x64mx6jzcbzkbz1ddrw6r0000gn/T/npm-1320526983365/1320526983365-0.39399305498227477/contents/___package.npm/daisy/lib/beans/hooks.rabbitmq/bucket.js
+silly asyncMap in gTP /var/folders/n1/r96x64mx6jzcbzkbz1ddrw6r0000gn/T/npm-1320526983365/1320526983365-0.39399305498227477/contents/___package.npm/daisy/lib/beans/hooks.rabbitmq/index.js
+silly asyncMap in gTP /var/folders/n1/r96x64mx6jzcbzkbz1ddrw6r0000gn/T/npm-1320526983365/1320526983365-0.39399305498227477/contents/___package.npm/daisy/lib/beans/hooks.rabbitmq/transport.js
+silly asyncMap in gTP /var/folders/n1/r96x64mx6jzcbzkbz1ddrw6r0000gn/T/npm-1320526983365/1320526983365-0.39399305498227477/contents/___package.npm/daisy/lib/beans/hooks.rabbitmq/utils.js
+verbose gunzed /var/folders/n1/r96x64mx6jzcbzkbz1ddrw6r0000gn/T/npm-1320526983365/1320526983365-0.39399305498227477/contents/___package.npm/daisy
+verbose rm'ed /var/folders/n1/r96x64mx6jzcbzkbz1ddrw6r0000gn/T/npm-1320526983365/1320526983365-0.39399305498227477/contents/package
+verbose renamed [ '/var/folders/n1/r96x64mx6jzcbzkbz1ddrw6r0000gn/T/npm-1320526983365/1320526983365-0.39399305498227477/contents/___package.npm/daisy',
+verbose renamed   '/var/folders/n1/r96x64mx6jzcbzkbz1ddrw6r0000gn/T/npm-1320526983365/1320526983365-0.39399305498227477/contents/package' ]
 silly testEngine { name: 'daisy',
 silly testEngine   description: 'Abstracted MQ for rabbitmq',
 silly testEngine   version: '0.0.7',
@@ -182,18 +182,18 @@ silly testEngine   _engineSupported: true,
 silly testEngine   _npmVersion: '1.0.103',
 silly testEngine   _nodeVersion: 'v0.4.12',
 silly testEngine   _defaultsLoaded: true,
-silly testEngine   path: '/var/folders/n1/r96x64mx6jzcbzkbz1ddrw6r0000gn/T/npm-1320526662830/1320526662830-0.6595115794334561/contents/package' }
-verbose caching /var/folders/n1/r96x64mx6jzcbzkbz1ddrw6r0000gn/T/npm-1320526662830/1320526662830-0.6595115794334561/contents/package/package.json
+silly testEngine   path: '/var/folders/n1/r96x64mx6jzcbzkbz1ddrw6r0000gn/T/npm-1320526983365/1320526983365-0.39399305498227477/contents/package' }
+verbose caching /var/folders/n1/r96x64mx6jzcbzkbz1ddrw6r0000gn/T/npm-1320526983365/1320526983365-0.39399305498227477/contents/package/package.json
 verbose loadDefaults daisy@0.0.7
 verbose tarball contents [ 'package' ]
-verbose from cache /var/folders/n1/r96x64mx6jzcbzkbz1ddrw6r0000gn/T/npm-1320526662830/1320526662830-0.6595115794334561/contents/package/package.json
-verbose pack /var/folders/n1/r96x64mx6jzcbzkbz1ddrw6r0000gn/T/npm-1320526662830/1320526662830-0.6595115794334561/contents/package /Users/craig/.npm/daisy/0.0.7/package.tgz
+verbose from cache /var/folders/n1/r96x64mx6jzcbzkbz1ddrw6r0000gn/T/npm-1320526983365/1320526983365-0.39399305498227477/contents/package/package.json
+verbose pack /var/folders/n1/r96x64mx6jzcbzkbz1ddrw6r0000gn/T/npm-1320526983365/1320526983365-0.39399305498227477/contents/package /Users/craig/.npm/daisy/0.0.7/package.tgz
 verbose mkdir'ed /Users/craig/.npm/daisy/0.0.7
 verbose tar about to write tar and gzip it.
 silly tar args [ '-czvf', '-', '-T', '-' ]
 silly spawning [ 'tar',
 silly spawning   [ '-czvf', '-', '-T', '-' ],
-silly spawning   '/var/folders/n1/r96x64mx6jzcbzkbz1ddrw6r0000gn/T/npm-1320526662830/1320526662830-0.6595115794334561/contents' ]
+silly spawning   '/var/folders/n1/r96x64mx6jzcbzkbz1ddrw6r0000gn/T/npm-1320526983365/1320526983365-0.39399305498227477/contents' ]
 verbose mkdir (expected) error ENOENT, No such file or directory '/Users/craig/.npm/daisy/0.0.7/___package.npm'
 verbose mkdir done: /Users/craig/.npm/daisy/0.0.7/___package.npm 755
 verbose unpack_ uid, gid [ undefined, undefined ]
@@ -296,12 +296,12 @@ silly testEngine   _npmVersion: '1.0.103',
 silly testEngine   _nodeVersion: 'v0.4.12',
 silly testEngine   _defaultsLoaded: true,
 silly testEngine   dist: 
-silly testEngine    { shasum: 'ba57d06fd85c1372551437809161d055779dd26a',
+silly testEngine    { shasum: '553bfac47d680117711e7027e3f0ce4efd4c4cda',
 silly testEngine      tarball: 'http://registry.npmjs.org/daisy/-/daisy-0.0.7.tgz' } }
 verbose caching /Users/craig/.npm/daisy/0.0.7/package/package.json
 verbose loadDefaults daisy@0.0.7
 silly updated sha bytes 10240
-info shasum 55d69902bf34bbb8fe61333338624742fdfe882f
+info shasum 553bfac47d680117711e7027e3f0ce4efd4c4cda
 info shasum /Users/craig/.npm/daisy/0.0.7/package.tgz
 verbose from cache /Users/craig/.npm/daisy/0.0.7/package/package.json
 verbose chmod /Users/craig/.npm/daisy/0.0.7/package.tgz 644
@@ -336,298 +336,7 @@ silly publish   _npmVersion: '1.0.103',
 silly publish   _nodeVersion: 'v0.4.12',
 silly publish   _defaultsLoaded: true,
 silly publish   dist: 
-silly publish    { shasum: 'ba57d06fd85c1372551437809161d055779dd26a',
-silly publish      tarball: 'http://registry.npmjs.org/daisy/-/daisy-0.0.7.tgz' } }
-verbose PUT daisy
-verbose raw, before any munging daisy
-verbose url resolving [ 'https://registry.npmjs.org/', './daisy' ]
-verbose url resolved https://registry.npmjs.org/daisy
-verbose GET daisy
-verbose raw, before any munging daisy
-verbose url resolving [ 'https://registry.npmjs.org/', './daisy' ]
-verbose url resolved https://registry.npmjs.org/daisy
-info Already published daisy@0.0.7
-verbose uploading bin dists []
-WARN publish Forced publish over daisy@0.0.7
-verbose GET daisy
-verbose raw, before any munging daisy
-verbose url resolving [ 'https://registry.npmjs.org/', './daisy' ]
-verbose url resolved https://registry.npmjs.org/daisy
-silly get cb [ 200,
-silly get cb   { vary: 'Accept',
-silly get cb     server: 'CouchDB/1.1.1 (Erlang OTP/R14B04)',
-silly get cb     etag: '"HAGFUBXYDO3XI8SU7UQKADWN"',
-silly get cb     date: 'Sat, 05 Nov 2011 20:57:47 GMT',
-silly get cb     'content-type': 'application/json',
-silly get cb     'content-length': '5424' } ]
-verbose removing attachments { shasum: 'bf6fca87701c8dd9e01770940bb61297a98b9abf',
-verbose removing attachments   tarball: 'http://registry.npmjs.org/daisy/-/daisy-0.0.7.tgz' }
-verbose PUT daisy/-rev/41-7c3e09acc57a7624f9e1c1b47a58f5d3
-verbose raw, before any munging daisy/-rev/41-7c3e09acc57a7624f9e1c1b47a58f5d3
-verbose url resolving [ 'https://registry.npmjs.org/',
-verbose url resolving   './daisy/-rev/41-7c3e09acc57a7624f9e1c1b47a58f5d3' ]
-verbose url resolved https://registry.npmjs.org/daisy/-rev/41-7c3e09acc57a7624f9e1c1b47a58f5d3
-verbose GET daisy
-verbose raw, before any munging daisy
-verbose url resolving [ 'https://registry.npmjs.org/', './daisy' ]
-verbose url resolved https://registry.npmjs.org/daisy
-silly get cb [ 200,
-silly get cb   { vary: 'Accept',
-silly get cb     server: 'CouchDB/1.1.1 (Erlang OTP/R14B04)',
-silly get cb     etag: '"8P8L4VX3FAUHW8ML421O3ZIEV"',
-silly get cb     date: 'Sat, 05 Nov 2011 20:57:48 GMT',
-silly get cb     'content-type': 'application/json',
-silly get cb     'content-length': '4557' } ]
-info detach /daisy/-/daisy-0.0.7.tgz/-rev/42-2c5d30a753f1bfe19299a6e0e94ec962
-verbose DELETE /daisy/-/daisy-0.0.7.tgz/-rev/42-2c5d30a753f1bfe19299a6e0e94ec962
-verbose raw, before any munging /daisy/-/daisy-0.0.7.tgz/-rev/42-2c5d30a753f1bfe19299a6e0e94ec962
-verbose url resolving [ 'https://registry.npmjs.org/',
-verbose url resolving   './daisy/-/daisy-0.0.7.tgz/-rev/42-2c5d30a753f1bfe19299a6e0e94ec962' ]
-verbose url resolved https://registry.npmjs.org/daisy/-/daisy-0.0.7.tgz/-rev/42-2c5d30a753f1bfe19299a6e0e94ec962
-verbose publish [ '.' ]
-verbose from cache /Users/craig/Dropbox/Developer/Public/daisy/package.json
-info prepublish daisy@0.0.7
-verbose cache add [ '.', null ]
-silly cache add: name, spec, args [ undefined, '.', [ '.', null ] ]
-verbose parsed url { pathname: '.', href: '.' }
-verbose from cache package.json
-verbose pack /Users/craig/Dropbox/Developer/Public/daisy /var/folders/n1/r96x64mx6jzcbzkbz1ddrw6r0000gn/T/npm-1320526662830/1320526667171-0.3914018371142447/tmp.tgz
-verbose mkdir (expected) error ENOENT, No such file or directory '/var/folders/n1/r96x64mx6jzcbzkbz1ddrw6r0000gn/T/npm-1320526662830/1320526667171-0.3914018371142447'
-verbose mkdir done: /var/folders/n1/r96x64mx6jzcbzkbz1ddrw6r0000gn/T/npm-1320526662830/1320526667171-0.3914018371142447 755
-verbose mkdir'ed /var/folders/n1/r96x64mx6jzcbzkbz1ddrw6r0000gn/T/npm-1320526662830/1320526667171-0.3914018371142447
-verbose tar about to write tar and gzip it.
-silly tar args [ '-czvf', '-', '-T', '-' ]
-silly spawning [ 'tar',
-silly spawning   [ '-czvf', '-', '-T', '-' ],
-silly spawning   '/Users/craig/Dropbox/Developer/Public' ]
-verbose mkdir (expected) error ENOENT, No such file or directory '/var/folders/n1/r96x64mx6jzcbzkbz1ddrw6r0000gn/T/npm-1320526662830/1320526667171-0.3914018371142447/contents'
-verbose mkdir (expected) error ENOENT, No such file or directory '/var/folders/n1/r96x64mx6jzcbzkbz1ddrw6r0000gn/T/npm-1320526662830/1320526667171-0.3914018371142447/contents/___package.npm'
-verbose mkdir done: /var/folders/n1/r96x64mx6jzcbzkbz1ddrw6r0000gn/T/npm-1320526662830/1320526667171-0.3914018371142447/contents/___package.npm 755
-verbose unpack_ uid, gid [ undefined, undefined ]
-verbose unpackTarget /var/folders/n1/r96x64mx6jzcbzkbz1ddrw6r0000gn/T/npm-1320526662830/1320526667171-0.3914018371142447/contents/package
-silly gunzTarPerm modes [ '755', '644' ]
-silly spawning [ 'tar',
-silly spawning   [ '-zmvxpf',
-silly spawning     '/var/folders/n1/r96x64mx6jzcbzkbz1ddrw6r0000gn/T/npm-1320526662830/1320526667171-0.3914018371142447/tmp.tgz',
-silly spawning     '-o' ],
-silly spawning   '/var/folders/n1/r96x64mx6jzcbzkbz1ddrw6r0000gn/T/npm-1320526662830/1320526667171-0.3914018371142447/contents/___package.npm' ]
-silly tar err x daisy/.cupboard
-silly tar err x daisy/.gitignore
-silly tar err x daisy/daisy.tmproj
-silly tar err x daisy/package.json
-silly tar err x daisy/README.md
-silly tar err x daisy/bin/server
-silly tar err x daisy/examples/test-middleware/hook1.js
-silly tar err x daisy/examples/test-middleware/hook2.js
-silly tar err x daisy/examples/test-pull/hook1.js
-silly tar err x daisy/examples/test-pull/hook2.js
-silly tar err x daisy/examples/test1/hook1.js
-silly tar err x daisy/examples/test1/hook2.js
-silly tar err x daisy/lib/index.js
-silly tar err x daisy/lib/server/index.js
-silly tar err x daisy/lib/beans/hooks.core/index.js
-silly tar err x daisy/lib/beans/hooks.core/transactions.js
-silly tar err x daisy/lib/beans/hooks.core/transports.js
-silly tar err x daisy/lib/beans/hooks.core/utils.js
-silly tar err x daisy/lib/beans/hooks.jsonp/index.js
-silly tar err x daisy/lib/beans/hooks.jsonp/transport.js
-silly tar err x daisy/lib/beans/hooks.rabbitmq/bucket.js
-silly tar err x daisy/lib/beans/hooks.rabbitmq/index.js
-silly tar err x daisy/lib/beans/hooks.rabbitmq/transport.js
-silly tar err x daisy/lib/beans/hooks.rabbitmq/utils.js
-silly asyncMap in gTP /var/folders/n1/r96x64mx6jzcbzkbz1ddrw6r0000gn/T/npm-1320526662830/1320526667171-0.3914018371142447/contents/___package.npm/daisy
-silly asyncMap in gTP /var/folders/n1/r96x64mx6jzcbzkbz1ddrw6r0000gn/T/npm-1320526662830/1320526667171-0.3914018371142447/contents/___package.npm/daisy/.cupboard
-silly asyncMap in gTP /var/folders/n1/r96x64mx6jzcbzkbz1ddrw6r0000gn/T/npm-1320526662830/1320526667171-0.3914018371142447/contents/___package.npm/daisy/.gitignore
-silly asyncMap in gTP /var/folders/n1/r96x64mx6jzcbzkbz1ddrw6r0000gn/T/npm-1320526662830/1320526667171-0.3914018371142447/contents/___package.npm/daisy/daisy.tmproj
-silly asyncMap in gTP /var/folders/n1/r96x64mx6jzcbzkbz1ddrw6r0000gn/T/npm-1320526662830/1320526667171-0.3914018371142447/contents/___package.npm/daisy/package.json
-silly asyncMap in gTP /var/folders/n1/r96x64mx6jzcbzkbz1ddrw6r0000gn/T/npm-1320526662830/1320526667171-0.3914018371142447/contents/___package.npm/daisy/README.md
-silly asyncMap in gTP /var/folders/n1/r96x64mx6jzcbzkbz1ddrw6r0000gn/T/npm-1320526662830/1320526667171-0.3914018371142447/contents/___package.npm/daisy/bin
-silly asyncMap in gTP /var/folders/n1/r96x64mx6jzcbzkbz1ddrw6r0000gn/T/npm-1320526662830/1320526667171-0.3914018371142447/contents/___package.npm/daisy/bin/server
-silly asyncMap in gTP /var/folders/n1/r96x64mx6jzcbzkbz1ddrw6r0000gn/T/npm-1320526662830/1320526667171-0.3914018371142447/contents/___package.npm/daisy/examples
-silly asyncMap in gTP /var/folders/n1/r96x64mx6jzcbzkbz1ddrw6r0000gn/T/npm-1320526662830/1320526667171-0.3914018371142447/contents/___package.npm/daisy/examples/test-middleware
-silly asyncMap in gTP /var/folders/n1/r96x64mx6jzcbzkbz1ddrw6r0000gn/T/npm-1320526662830/1320526667171-0.3914018371142447/contents/___package.npm/daisy/examples/test-middleware/hook1.js
-silly asyncMap in gTP /var/folders/n1/r96x64mx6jzcbzkbz1ddrw6r0000gn/T/npm-1320526662830/1320526667171-0.3914018371142447/contents/___package.npm/daisy/examples/test-middleware/hook2.js
-silly asyncMap in gTP /var/folders/n1/r96x64mx6jzcbzkbz1ddrw6r0000gn/T/npm-1320526662830/1320526667171-0.3914018371142447/contents/___package.npm/daisy/examples/test-pull
-silly asyncMap in gTP /var/folders/n1/r96x64mx6jzcbzkbz1ddrw6r0000gn/T/npm-1320526662830/1320526667171-0.3914018371142447/contents/___package.npm/daisy/examples/test-pull/hook1.js
-silly asyncMap in gTP /var/folders/n1/r96x64mx6jzcbzkbz1ddrw6r0000gn/T/npm-1320526662830/1320526667171-0.3914018371142447/contents/___package.npm/daisy/examples/test-pull/hook2.js
-silly asyncMap in gTP /var/folders/n1/r96x64mx6jzcbzkbz1ddrw6r0000gn/T/npm-1320526662830/1320526667171-0.3914018371142447/contents/___package.npm/daisy/examples/test1
-silly asyncMap in gTP /var/folders/n1/r96x64mx6jzcbzkbz1ddrw6r0000gn/T/npm-1320526662830/1320526667171-0.3914018371142447/contents/___package.npm/daisy/examples/test1/hook2.js
-silly asyncMap in gTP /var/folders/n1/r96x64mx6jzcbzkbz1ddrw6r0000gn/T/npm-1320526662830/1320526667171-0.3914018371142447/contents/___package.npm/daisy/examples/test1/hook1.js
-silly asyncMap in gTP /var/folders/n1/r96x64mx6jzcbzkbz1ddrw6r0000gn/T/npm-1320526662830/1320526667171-0.3914018371142447/contents/___package.npm/daisy/lib
-silly asyncMap in gTP /var/folders/n1/r96x64mx6jzcbzkbz1ddrw6r0000gn/T/npm-1320526662830/1320526667171-0.3914018371142447/contents/___package.npm/daisy/lib/index.js
-silly asyncMap in gTP /var/folders/n1/r96x64mx6jzcbzkbz1ddrw6r0000gn/T/npm-1320526662830/1320526667171-0.3914018371142447/contents/___package.npm/daisy/lib/server
-silly asyncMap in gTP /var/folders/n1/r96x64mx6jzcbzkbz1ddrw6r0000gn/T/npm-1320526662830/1320526667171-0.3914018371142447/contents/___package.npm/daisy/lib/server/index.js
-silly asyncMap in gTP /var/folders/n1/r96x64mx6jzcbzkbz1ddrw6r0000gn/T/npm-1320526662830/1320526667171-0.3914018371142447/contents/___package.npm/daisy/lib/beans
-silly asyncMap in gTP /var/folders/n1/r96x64mx6jzcbzkbz1ddrw6r0000gn/T/npm-1320526662830/1320526667171-0.3914018371142447/contents/___package.npm/daisy/lib/beans/hooks.core
-silly asyncMap in gTP /var/folders/n1/r96x64mx6jzcbzkbz1ddrw6r0000gn/T/npm-1320526662830/1320526667171-0.3914018371142447/contents/___package.npm/daisy/lib/beans/hooks.core/index.js
-silly asyncMap in gTP /var/folders/n1/r96x64mx6jzcbzkbz1ddrw6r0000gn/T/npm-1320526662830/1320526667171-0.3914018371142447/contents/___package.npm/daisy/lib/beans/hooks.core/transactions.js
-silly asyncMap in gTP /var/folders/n1/r96x64mx6jzcbzkbz1ddrw6r0000gn/T/npm-1320526662830/1320526667171-0.3914018371142447/contents/___package.npm/daisy/lib/beans/hooks.core/transports.js
-silly asyncMap in gTP /var/folders/n1/r96x64mx6jzcbzkbz1ddrw6r0000gn/T/npm-1320526662830/1320526667171-0.3914018371142447/contents/___package.npm/daisy/lib/beans/hooks.core/utils.js
-silly asyncMap in gTP /var/folders/n1/r96x64mx6jzcbzkbz1ddrw6r0000gn/T/npm-1320526662830/1320526667171-0.3914018371142447/contents/___package.npm/daisy/lib/beans/hooks.jsonp
-silly asyncMap in gTP /var/folders/n1/r96x64mx6jzcbzkbz1ddrw6r0000gn/T/npm-1320526662830/1320526667171-0.3914018371142447/contents/___package.npm/daisy/lib/beans/hooks.jsonp/index.js
-silly asyncMap in gTP /var/folders/n1/r96x64mx6jzcbzkbz1ddrw6r0000gn/T/npm-1320526662830/1320526667171-0.3914018371142447/contents/___package.npm/daisy/lib/beans/hooks.jsonp/transport.js
-silly asyncMap in gTP /var/folders/n1/r96x64mx6jzcbzkbz1ddrw6r0000gn/T/npm-1320526662830/1320526667171-0.3914018371142447/contents/___package.npm/daisy/lib/beans/hooks.rabbitmq
-silly asyncMap in gTP /var/folders/n1/r96x64mx6jzcbzkbz1ddrw6r0000gn/T/npm-1320526662830/1320526667171-0.3914018371142447/contents/___package.npm/daisy/lib/beans/hooks.rabbitmq/bucket.js
-silly asyncMap in gTP /var/folders/n1/r96x64mx6jzcbzkbz1ddrw6r0000gn/T/npm-1320526662830/1320526667171-0.3914018371142447/contents/___package.npm/daisy/lib/beans/hooks.rabbitmq/index.js
-silly asyncMap in gTP /var/folders/n1/r96x64mx6jzcbzkbz1ddrw6r0000gn/T/npm-1320526662830/1320526667171-0.3914018371142447/contents/___package.npm/daisy/lib/beans/hooks.rabbitmq/transport.js
-silly asyncMap in gTP /var/folders/n1/r96x64mx6jzcbzkbz1ddrw6r0000gn/T/npm-1320526662830/1320526667171-0.3914018371142447/contents/___package.npm/daisy/lib/beans/hooks.rabbitmq/utils.js
-verbose gunzed /var/folders/n1/r96x64mx6jzcbzkbz1ddrw6r0000gn/T/npm-1320526662830/1320526667171-0.3914018371142447/contents/___package.npm/daisy
-verbose rm'ed /var/folders/n1/r96x64mx6jzcbzkbz1ddrw6r0000gn/T/npm-1320526662830/1320526667171-0.3914018371142447/contents/package
-verbose renamed [ '/var/folders/n1/r96x64mx6jzcbzkbz1ddrw6r0000gn/T/npm-1320526662830/1320526667171-0.3914018371142447/contents/___package.npm/daisy',
-verbose renamed   '/var/folders/n1/r96x64mx6jzcbzkbz1ddrw6r0000gn/T/npm-1320526662830/1320526667171-0.3914018371142447/contents/package' ]
-silly testEngine { name: 'daisy',
-silly testEngine   description: 'Abstracted MQ for rabbitmq',
-silly testEngine   version: '0.0.7',
-silly testEngine   author: { name: 'Craig Condon' },
-silly testEngine   repository: 
-silly testEngine    { type: 'git',
-silly testEngine      url: 'git://github.com/spiceapps/daisy.git' },
-silly testEngine   directories: { lib: './lib/beans' },
-silly testEngine   dependencies: 
-silly testEngine    { beanpole: '*',
-silly testEngine      amqp: '*',
-silly testEngine      cashew: '*',
-silly testEngine      structr: '*',
-silly testEngine      colors: '*',
-silly testEngine      vine: '*',
-silly testEngine      underscore: '*',
-silly testEngine      yaconfig: '*' },
-silly testEngine   main: './lib/index.js',
-silly testEngine   bin: { daisy: './bin/server' },
-silly testEngine   _npmUser: { name: 'architectd', email: 'craig@spiceapps.com' },
-silly testEngine   _id: 'daisy@0.0.7',
-silly testEngine   devDependencies: {},
-silly testEngine   engines: { node: '*' },
-silly testEngine   _engineSupported: true,
-silly testEngine   _npmVersion: '1.0.103',
-silly testEngine   _nodeVersion: 'v0.4.12',
-silly testEngine   _defaultsLoaded: true,
-silly testEngine   path: '/var/folders/n1/r96x64mx6jzcbzkbz1ddrw6r0000gn/T/npm-1320526662830/1320526667171-0.3914018371142447/contents/package' }
-verbose caching /var/folders/n1/r96x64mx6jzcbzkbz1ddrw6r0000gn/T/npm-1320526662830/1320526667171-0.3914018371142447/contents/package/package.json
-verbose loadDefaults daisy@0.0.7
-verbose tarball contents [ 'package' ]
-verbose from cache /var/folders/n1/r96x64mx6jzcbzkbz1ddrw6r0000gn/T/npm-1320526662830/1320526667171-0.3914018371142447/contents/package/package.json
-verbose pack /var/folders/n1/r96x64mx6jzcbzkbz1ddrw6r0000gn/T/npm-1320526662830/1320526667171-0.3914018371142447/contents/package /Users/craig/.npm/daisy/0.0.7/package.tgz
-verbose mkdir (expected) error ENOENT, No such file or directory '/Users/craig/.npm/daisy/0.0.7'
-verbose mkdir done: /Users/craig/.npm/daisy/0.0.7 755
-verbose mkdir'ed /Users/craig/.npm/daisy/0.0.7
-verbose tar about to write tar and gzip it.
-silly tar args [ '-czvf', '-', '-T', '-' ]
-silly spawning [ 'tar',
-silly spawning   [ '-czvf', '-', '-T', '-' ],
-silly spawning   '/var/folders/n1/r96x64mx6jzcbzkbz1ddrw6r0000gn/T/npm-1320526662830/1320526667171-0.3914018371142447/contents' ]
-verbose mkdir (expected) error ENOENT, No such file or directory '/Users/craig/.npm/daisy/0.0.7/___package.npm'
-verbose mkdir done: /Users/craig/.npm/daisy/0.0.7/___package.npm 755
-verbose unpack_ uid, gid [ undefined, undefined ]
-verbose unpackTarget /Users/craig/.npm/daisy/0.0.7/package
-silly gunzTarPerm modes [ '755', '644' ]
-silly spawning [ 'tar',
-silly spawning   [ '-zmvxpf',
-silly spawning     '/Users/craig/.npm/daisy/0.0.7/package.tgz',
-silly spawning     '-o' ],
-silly spawning   '/Users/craig/.npm/daisy/0.0.7/___package.npm' ]
-silly tar err x package/.cupboard
-silly tar err x package/.gitignore
-silly tar err x package/daisy.tmproj
-silly tar err x package/package.json
-silly tar err x package/README.md
-silly tar err x package/bin/server
-silly tar err x package/examples/test-middleware/hook1.js
-silly tar err x package/examples/test-middleware/hook2.js
-silly tar err x package/examples/test-pull/hook1.js
-silly tar err x package/examples/test-pull/hook2.js
-silly tar err x package/examples/test1/hook1.js
-silly tar err x package/examples/test1/hook2.js
-silly tar err x package/lib/index.js
-silly tar err x package/lib/server/index.js
-silly tar err x package/lib/beans/hooks.core/index.js
-silly tar err x package/lib/beans/hooks.core/transactions.js
-silly tar err x package/lib/beans/hooks.core/transports.js
-silly tar err x package/lib/beans/hooks.core/utils.js
-silly tar err x package/lib/beans/hooks.jsonp/index.js
-silly tar err x package/lib/beans/hooks.jsonp/transport.js
-silly tar err x package/lib/beans/hooks.rabbitmq/bucket.js
-silly tar err x package/lib/beans/hooks.rabbitmq/index.js
-silly tar err x package/lib/beans/hooks.rabbitmq/transport.js
-silly tar err x package/lib/beans/hooks.rabbitmq/utils.js
-silly asyncMap in gTP /Users/craig/.npm/daisy/0.0.7/___package.npm/package
-silly asyncMap in gTP /Users/craig/.npm/daisy/0.0.7/___package.npm/package/.cupboard
-silly asyncMap in gTP /Users/craig/.npm/daisy/0.0.7/___package.npm/package/.gitignore
-silly asyncMap in gTP /Users/craig/.npm/daisy/0.0.7/___package.npm/package/daisy.tmproj
-silly asyncMap in gTP /Users/craig/.npm/daisy/0.0.7/___package.npm/package/package.json
-silly asyncMap in gTP /Users/craig/.npm/daisy/0.0.7/___package.npm/package/README.md
-silly asyncMap in gTP /Users/craig/.npm/daisy/0.0.7/___package.npm/package/bin
-silly asyncMap in gTP /Users/craig/.npm/daisy/0.0.7/___package.npm/package/bin/server
-silly asyncMap in gTP /Users/craig/.npm/daisy/0.0.7/___package.npm/package/examples
-silly asyncMap in gTP /Users/craig/.npm/daisy/0.0.7/___package.npm/package/examples/test-middleware
-silly asyncMap in gTP /Users/craig/.npm/daisy/0.0.7/___package.npm/package/examples/test-middleware/hook1.js
-silly asyncMap in gTP /Users/craig/.npm/daisy/0.0.7/___package.npm/package/examples/test-middleware/hook2.js
-silly asyncMap in gTP /Users/craig/.npm/daisy/0.0.7/___package.npm/package/examples/test-pull
-silly asyncMap in gTP /Users/craig/.npm/daisy/0.0.7/___package.npm/package/examples/test-pull/hook1.js
-silly asyncMap in gTP /Users/craig/.npm/daisy/0.0.7/___package.npm/package/examples/test-pull/hook2.js
-silly asyncMap in gTP /Users/craig/.npm/daisy/0.0.7/___package.npm/package/examples/test1
-silly asyncMap in gTP /Users/craig/.npm/daisy/0.0.7/___package.npm/package/examples/test1/hook1.js
-silly asyncMap in gTP /Users/craig/.npm/daisy/0.0.7/___package.npm/package/examples/test1/hook2.js
-silly asyncMap in gTP /Users/craig/.npm/daisy/0.0.7/___package.npm/package/lib
-silly asyncMap in gTP /Users/craig/.npm/daisy/0.0.7/___package.npm/package/lib/index.js
-silly asyncMap in gTP /Users/craig/.npm/daisy/0.0.7/___package.npm/package/lib/server
-silly asyncMap in gTP /Users/craig/.npm/daisy/0.0.7/___package.npm/package/lib/server/index.js
-silly asyncMap in gTP /Users/craig/.npm/daisy/0.0.7/___package.npm/package/lib/beans
-silly asyncMap in gTP /Users/craig/.npm/daisy/0.0.7/___package.npm/package/lib/beans/hooks.core
-silly asyncMap in gTP /Users/craig/.npm/daisy/0.0.7/___package.npm/package/lib/beans/hooks.core/index.js
-silly asyncMap in gTP /Users/craig/.npm/daisy/0.0.7/___package.npm/package/lib/beans/hooks.core/transactions.js
-silly asyncMap in gTP /Users/craig/.npm/daisy/0.0.7/___package.npm/package/lib/beans/hooks.core/transports.js
-silly asyncMap in gTP /Users/craig/.npm/daisy/0.0.7/___package.npm/package/lib/beans/hooks.core/utils.js
-silly asyncMap in gTP /Users/craig/.npm/daisy/0.0.7/___package.npm/package/lib/beans/hooks.jsonp
-silly asyncMap in gTP /Users/craig/.npm/daisy/0.0.7/___package.npm/package/lib/beans/hooks.jsonp/index.js
-silly asyncMap in gTP /Users/craig/.npm/daisy/0.0.7/___package.npm/package/lib/beans/hooks.jsonp/transport.js
-silly asyncMap in gTP /Users/craig/.npm/daisy/0.0.7/___package.npm/package/lib/beans/hooks.rabbitmq
-silly asyncMap in gTP /Users/craig/.npm/daisy/0.0.7/___package.npm/package/lib/beans/hooks.rabbitmq/bucket.js
-silly asyncMap in gTP /Users/craig/.npm/daisy/0.0.7/___package.npm/package/lib/beans/hooks.rabbitmq/index.js
-silly asyncMap in gTP /Users/craig/.npm/daisy/0.0.7/___package.npm/package/lib/beans/hooks.rabbitmq/transport.js
-silly asyncMap in gTP /Users/craig/.npm/daisy/0.0.7/___package.npm/package/lib/beans/hooks.rabbitmq/utils.js
-verbose gunzed /Users/craig/.npm/daisy/0.0.7/___package.npm/package
-verbose rm'ed /Users/craig/.npm/daisy/0.0.7/package
-verbose renamed [ '/Users/craig/.npm/daisy/0.0.7/___package.npm/package',
-verbose renamed   '/Users/craig/.npm/daisy/0.0.7/package' ]
-verbose from cache /Users/craig/.npm/daisy/0.0.7/package/package.json
-silly updated sha bytes 10240
-info shasum ba57d06fd85c1372551437809161d055779dd26a
-info shasum /Users/craig/.npm/daisy/0.0.7/package.tgz
-verbose from cache /Users/craig/.npm/daisy/0.0.7/package/package.json
-verbose chmod /Users/craig/.npm/daisy/0.0.7/package.tgz 644
-verbose chown [ '/Users/craig/.npm/daisy/0.0.7/package.tgz',
-verbose chown   501,
-verbose chown   20 ]
-silly publish { name: 'daisy',
-silly publish   description: 'Abstracted MQ for rabbitmq',
-silly publish   version: '0.0.7',
-silly publish   author: { name: 'Craig Condon' },
-silly publish   repository: 
-silly publish    { type: 'git',
-silly publish      url: 'git://github.com/spiceapps/daisy.git' },
-silly publish   directories: { lib: './lib/beans' },
-silly publish   dependencies: 
-silly publish    { beanpole: '*',
-silly publish      amqp: '*',
-silly publish      cashew: '*',
-silly publish      structr: '*',
-silly publish      colors: '*',
-silly publish      vine: '*',
-silly publish      underscore: '*',
-silly publish      yaconfig: '*' },
-silly publish   main: './lib/index.js',
-silly publish   bin: { daisy: './bin/server' },
-silly publish   _npmUser: { name: 'architectd', email: 'craig@spiceapps.com' },
-silly publish   _id: 'daisy@0.0.7',
-silly publish   devDependencies: {},
-silly publish   engines: { node: '*' },
-silly publish   _engineSupported: true,
-silly publish   _npmVersion: '1.0.103',
-silly publish   _nodeVersion: 'v0.4.12',
-silly publish   _defaultsLoaded: true,
-silly publish   dist: 
-silly publish    { shasum: 'ba57d06fd85c1372551437809161d055779dd26a',
+silly publish    { shasum: '553bfac47d680117711e7027e3f0ce4efd4c4cda',
 silly publish      tarball: 'http://registry.npmjs.org/daisy/-/daisy-0.0.7.tgz' } }
 verbose PUT daisy
 verbose raw, before any munging daisy
