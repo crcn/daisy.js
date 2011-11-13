@@ -1,8 +1,2 @@
-[project]
-name = daisy
 [commands]
-publish = npm publish --force, git add ., git commit -m "$@", git push origin master
-rm = git rm -r $@
-ignore = echo $@ >> .gitignore
-proj = open daisy.tmproj
-github=https://github.com/spiceapps/daisy
+proj = open project.tmproj
