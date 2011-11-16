@@ -1,2 +1,3 @@
 [commands]
 proj = open project.tmproj
+start = ./bin/server
