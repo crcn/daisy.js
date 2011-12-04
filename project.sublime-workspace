@@ -19,6 +19,17 @@
 			}
 		},
 		{
+			"contents": "",
+			"file": "/tmp/subl stdin fIt3ti.txt",
+			"file_size": -1,
+			"file_write_time": -1,
+			"settings":
+			{
+				"buffer_size": 0,
+				"line_ending": "Unix"
+			}
+		},
+		{
 			"file": "lib/index.js",
 			"settings":
 			{
@@ -27,10 +38,45 @@
 			}
 		},
 		{
+			"contents": "",
 			"file": "/tmp/subl stdin aZDu7s.txt",
+			"file_size": -1,
+			"file_write_time": -1,
 			"settings":
 			{
 				"buffer_size": 0,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "lib/beans/hooks.core/transactions.js",
+			"settings":
+			{
+				"buffer_size": 4363,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "lib/beans/hooks.core/transports.js",
+			"settings":
+			{
+				"buffer_size": 7057,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "lib/beans/hooks.core/index.js",
+			"settings":
+			{
+				"buffer_size": 1633,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "lib/server/index.js",
+			"settings":
+			{
+				"buffer_size": 1738,
 				"line_ending": "Unix"
 			}
 		}
@@ -77,6 +123,19 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"dispose",
+			"onEnd",
+			"register",
+			"_rem",
+			"regis",
+			"_addTransaction",
+			"end",
+			"dispose",
+			".dispose",
+			"register",
+			"kill",
+			"trans =",
+			".remove",
 			"args",
 			"--all"
 		],
@@ -96,7 +155,7 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 5,
 			"sheets":
 			[
 				{
@@ -127,6 +186,32 @@
 				},
 				{
 					"buffer": 1,
+					"file": "/tmp/subl stdin fIt3ti.txt",
+					"settings":
+					{
+						"buffer_size": 0,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
 					"file": "lib/index.js",
 					"settings":
 					{
@@ -137,8 +222,8 @@
 						"selection":
 						[
 							[
-								0,
-								0
+								213,
+								213
 							]
 						],
 						"settings":
@@ -152,7 +237,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 2,
+					"buffer": 3,
 					"file": "/tmp/subl stdin aZDu7s.txt",
 					"settings":
 					{
@@ -170,6 +255,114 @@
 						"settings":
 						{
 							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "lib/beans/hooks.core/transactions.js",
+					"settings":
+					{
+						"buffer_size": 4363,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1573,
+								1573
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 1421.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "lib/beans/hooks.core/transports.js",
+					"settings":
+					{
+						"buffer_size": 7057,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								4715,
+								4715
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 3027.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "lib/beans/hooks.core/index.js",
+					"settings":
+					{
+						"buffer_size": 1633,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								140,
+								140
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "lib/server/index.js",
+					"settings":
+					{
+						"buffer_size": 1738,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								436,
+								436
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
