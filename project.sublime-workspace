@@ -43,7 +43,7 @@
 			"file": "lib/beans/hooks.core/transports.js",
 			"settings":
 			{
-				"buffer_size": 7956,
+				"buffer_size": 8085,
 				"line_ending": "Unix"
 			}
 		},
@@ -99,7 +99,7 @@
 			"file": "package.json",
 			"settings":
 			{
-				"buffer_size": 617,
+				"buffer_size": 618,
 				"line_ending": "Unix"
 			}
 		},
@@ -140,6 +140,14 @@
 			"settings":
 			{
 				"buffer_size": 1482,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/tmp/subl stdin c3H8gx.txt",
+			"settings":
+			{
+				"buffer_size": 0,
 				"line_ending": "Unix"
 			}
 		}
@@ -190,6 +198,9 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"'param'",
+			"name",
+			"router.on",
 			"onMes",
 			"console.l",
 			"onMessage",
@@ -245,7 +256,7 @@
 	"groups":
 	[
 		{
-			"selected": 15,
+			"selected": 3,
 			"sheets":
 			[
 				{
@@ -260,8 +271,8 @@
 						"selection":
 						[
 							[
-								213,
-								213
+								81,
+								81
 							]
 						],
 						"settings":
@@ -312,8 +323,8 @@
 						"selection":
 						[
 							[
-								2170,
-								2170
+								274,
+								274
 							]
 						],
 						"settings":
@@ -322,7 +333,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 2118.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -332,15 +343,15 @@
 					"file": "lib/beans/hooks.core/transports.js",
 					"settings":
 					{
-						"buffer_size": 7956,
+						"buffer_size": 8085,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2370,
-								2370
+								6438,
+								6445
 							]
 						],
 						"settings":
@@ -349,7 +360,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 1191.0,
+						"translation.y": 3706.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -444,8 +455,8 @@
 						"selection":
 						[
 							[
-								717,
-								717
+								259,
+								259
 							]
 						],
 						"settings":
@@ -454,7 +465,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 2.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -517,7 +528,7 @@
 					"file": "package.json",
 					"settings":
 					{
-						"buffer_size": 617,
+						"buffer_size": 618,
 						"regions":
 						{
 						},
@@ -604,8 +615,8 @@
 						"selection":
 						[
 							[
-								2770,
-								2775
+								1021,
+								1021
 							]
 						],
 						"settings":
@@ -614,7 +625,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 1931.0,
+						"translation.y": 675.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -667,7 +678,33 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 553.0,
+						"translation.y": 437.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 16,
+					"file": "/tmp/subl stdin c3H8gx.txt",
+					"settings":
+					{
+						"buffer_size": 0,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
