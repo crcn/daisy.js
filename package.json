@@ -1,7 +1,7 @@
 {
     "name": "daisy",
     "description": "Abstracted MQ for rabbitmq",
-    "version": "0.0.13",
+    "version": "0.0.14",
     "author": "Craig Condon",
     "repository": {
         "type": "git",
