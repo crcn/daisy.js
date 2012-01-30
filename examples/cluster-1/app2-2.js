@@ -11,19 +11,9 @@ router.on({
 	/**
 	 */
 	
-	'push -hook hook1/ready': function()
+	'push -hook http-proxy/ready': function()
 	{
-		console.log('hook 1 ready!');
-		this.from.push('test')
-	},
-
-
-	/**
-	 */
-
-	'push -hook test3 -> test2': function() {
-		console.log("TEST 2")
-		this.next();
+		console.log('http proxy is ready!');
 	}
 	
 });
@@ -33,7 +23,8 @@ haba.loader().
 options(router, true).
 params({
 	index: {
-		remoteName: 'hook2',
+		remoteName: 'app22',
+		scope: ['app2','http-proxy'],
 		transport: {
 			rabbitmq: {
 				host: 'localhost'

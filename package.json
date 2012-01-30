@@ -1,7 +1,7 @@
 {
     "name": "daisy",
     "description": "Abstracted MQ for rabbitmq",
-    "version": "0.0.14",
+    "version": "0.1.0",
     "author": "Craig Condon",
     "repository": {
         "type": "git",
@@ -11,8 +11,9 @@
         "lib": "./lib/beans"
     },
     "dependencies": {
-        "beanpole": "<0.2",
-        "amqp": "0.1.1",
+        "beanpoll": "<0.3.0",
+        "haba":"<0.2.0",
+        "amqp": "git+https://github.com/postwait/node-amqp",
         "cashew": "0.0.5",
         "structr": "<0.2.0",
         "colors": "0.5.1",

@@ -11,19 +11,10 @@ router.on({
 	/**
 	 */
 	
-	'push -hook hook1/ready': function()
+	'pull -hook register/app': function(req, res)
 	{
-		console.log('hook 1 ready!');
-		this.from.push('test')
-	},
-
-
-	/**
-	 */
-
-	'push -hook test3 -> test2': function() {
-		console.log("TEST 2")
-		this.next();
+		console.log('Registering "%s"', this.from.name);
+		res.end('Registered app')
 	}
 	
 });
@@ -33,7 +24,7 @@ haba.loader().
 options(router, true).
 params({
 	index: {
-		remoteName: 'hook2',
+		remoteName: 'http-proxy',
 		transport: {
 			rabbitmq: {
 				host: 'localhost'
