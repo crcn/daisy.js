@@ -11,6 +11,7 @@
         "lib": "./lib/beans"
     },
     "dependencies": {
+	"sprintf":"0.1.x",
         "beanpoll": "<0.3.0",
         "haba":"<0.2.0",
         "amqp": "git+https://github.com/postwait/node-amqp",
@@ -19,7 +20,8 @@
         "colors": "0.5.1",
         "vine": "<0.1.0",
         "underscore": "1.2.2",
-        "yaconfig": "<=0.1.0"
+        "yaconfig": "<=0.1.0",
+        "winston":"<0.6.0"
     },
     "main": "./lib/index.js",
     "bin": {
