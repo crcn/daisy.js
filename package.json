@@ -10,7 +10,9 @@
     "directories": {
         "lib": "./lib/beans"
     },
+
     "dependencies": {
+	"crema":"*",
         "sprintf": "0.1.x",
         "beanpoll": "<0.3.0",
         "haba": "<0.2.0",
