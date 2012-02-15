@@ -1,14 +1,14 @@
 {
     "name": "daisy",
     "description": "Abstracted MQ for rabbitmq",
-    "version": "0.1.7",
+    "version": "0.1.8",
     "author": "Craig Condon",
     "repository": {
         "type": "git",
         "url": "http://github.com/crcn/daisy.git"
     },
     "directories": {
-        "lib": "./lib/beans"
+        "mesh-src": "./src"
     },
     "dependencies": {
         "crema": "*",
@@ -22,9 +22,9 @@
         "vine": "<0.1.0",
         "underscore": "1.2.2",
         "yaconfig": "<=0.1.0",
-        "winston": "<0.6.0"
+        "mesh-winston": "0.0.x"
     },
-    "main": "./lib/index.js",
+    "main": "./lib/node/index.js",
     "bin": {
         "daisy": "./bin/server"
     }

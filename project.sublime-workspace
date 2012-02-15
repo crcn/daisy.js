@@ -43,7 +43,7 @@
 			"file": "lib/beans/hooks.core/transactions.js",
 			"settings":
 			{
-				"buffer_size": 4607,
+				"buffer_size": 4602,
 				"line_ending": "Unix"
 			}
 		},
@@ -51,7 +51,15 @@
 			"file": "lib/beans/hooks.core/transports.js",
 			"settings":
 			{
-				"buffer_size": 11296,
+				"buffer_size": 10847,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/tmp/subl stdin Vmopb4.txt",
+			"settings":
+			{
+				"buffer_size": 0,
 				"line_ending": "Unix"
 			}
 		},
@@ -170,7 +178,7 @@
 			"file": "lib/beans/hooks.core/index.js",
 			"settings":
 			{
-				"buffer_size": 2582,
+				"buffer_size": 2586,
 				"line_ending": "Unix"
 			}
 		},
@@ -202,7 +210,7 @@
 			"file": "package.json",
 			"settings":
 			{
-				"buffer_size": 738,
+				"buffer_size": 754,
 				"line_ending": "Unix"
 			}
 		},
@@ -397,6 +405,14 @@
 				"buffer_size": 2046,
 				"line_ending": "Unix"
 			}
+		},
+		{
+			"file": "examples/cluster-1/mem.js",
+			"settings":
+			{
+				"buffer_size": 286,
+				"line_ending": "Unix"
+			}
 		}
 	],
 	"build_system": "",
@@ -446,6 +462,19 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"e.stack",
+			"_requests",
+			"onReq",
+			"_hook",
+			"fromRouter",
+			"from(",
+			"_dispatch",
+			"_from",
+			"._disp",
+			"_liveByChannel",
+			"_addTransaction",
+			"_from",
+			"remote ",
 			"logger.de",
 			"remove",
 			"_dispat",
@@ -560,20 +589,7 @@
 			"fuck",
 			"announce/",
 			"/ready",
-			"'response'",
-			"G",
-			"\n				console.log(\"G\")",
-			"'response'",
-			"onNoRoute",
-			"onNoR",
-			"response",
-			"onNoR",
-			"channel",
-			"response'",
-			"console.l",
-			"onRequest",
-			"r.req",
-			"r.pu"
+			"'response'"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -592,7 +608,7 @@
 	"groups":
 	[
 		{
-			"selected": 4,
+			"selected": 20,
 			"sheets":
 			[
 				{
@@ -679,15 +695,42 @@
 					"file": "lib/beans/hooks.core/transactions.js",
 					"settings":
 					{
-						"buffer_size": 4607,
+						"buffer_size": 4602,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1221,
-								1227
+								2977,
+								2977
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 2807.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "lib/beans/hooks.core/transports.js",
+					"settings":
+					{
+						"buffer_size": 10847,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
 							]
 						],
 						"settings":
@@ -702,35 +745,8 @@
 					"type": "text"
 				},
 				{
-					"buffer": 4,
-					"file": "lib/beans/hooks.core/transports.js",
-					"settings":
-					{
-						"buffer_size": 11296,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								9152,
-								9152
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 6421.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
 					"buffer": 5,
-					"file": "/tmp/subl stdin 9esqoU.txt",
+					"file": "/tmp/subl stdin Vmopb4.txt",
 					"settings":
 					{
 						"buffer_size": 0,
@@ -756,7 +772,7 @@
 				},
 				{
 					"buffer": 6,
-					"file": "/tmp/subl stdin Q3lbbv.txt",
+					"file": "/tmp/subl stdin 9esqoU.txt",
 					"settings":
 					{
 						"buffer_size": 0,
@@ -782,7 +798,7 @@
 				},
 				{
 					"buffer": 7,
-					"file": "/tmp/subl stdin n5mDvh.txt",
+					"file": "/tmp/subl stdin Q3lbbv.txt",
 					"settings":
 					{
 						"buffer_size": 0,
@@ -808,7 +824,7 @@
 				},
 				{
 					"buffer": 8,
-					"file": "/tmp/subl stdin QSsYfI.txt",
+					"file": "/tmp/subl stdin n5mDvh.txt",
 					"settings":
 					{
 						"buffer_size": 0,
@@ -834,6 +850,32 @@
 				},
 				{
 					"buffer": 9,
+					"file": "/tmp/subl stdin QSsYfI.txt",
+					"settings":
+					{
+						"buffer_size": 0,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 10,
 					"settings":
 					{
 						"buffer_size": 0,
@@ -859,7 +901,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 10,
+					"buffer": 11,
 					"file": "examples/cluster-1/app1-1.js",
 					"settings":
 					{
@@ -886,7 +928,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 11,
+					"buffer": 12,
 					"file": "examples/cluster-1/app2-1.js",
 					"settings":
 					{
@@ -913,7 +955,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 12,
+					"buffer": 13,
 					"file": "examples/cluster-1/app2-2.js",
 					"settings":
 					{
@@ -940,7 +982,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 13,
+					"buffer": 14,
 					"file": "examples/cluster-1/control1-1.js",
 					"settings":
 					{
@@ -967,7 +1009,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 14,
+					"buffer": 15,
 					"file": "examples/cluster-1/app1-2.js",
 					"settings":
 					{
@@ -994,7 +1036,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 15,
+					"buffer": 16,
 					"file": "/tmp/subl stdin cl1YGZ.txt",
 					"settings":
 					{
@@ -1020,7 +1062,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 16,
+					"buffer": 17,
 					"file": "/tmp/subl stdin RWBTTf.txt",
 					"settings":
 					{
@@ -1046,7 +1088,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 17,
+					"buffer": 18,
 					"file": "/tmp/subl stdin 20b2u3.txt",
 					"settings":
 					{
@@ -1072,7 +1114,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 18,
+					"buffer": 19,
 					"file": "/tmp/subl stdin Qxz51G.txt",
 					"settings":
 					{
@@ -1098,19 +1140,19 @@
 					"type": "text"
 				},
 				{
-					"buffer": 19,
+					"buffer": 20,
 					"file": "lib/beans/hooks.core/index.js",
 					"settings":
 					{
-						"buffer_size": 2582,
+						"buffer_size": 2586,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1020,
-								1033
+								1071,
+								1074
 							]
 						],
 						"settings":
@@ -1119,13 +1161,13 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 165.0,
+						"translation.y": 556.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
-					"buffer": 20,
+					"buffer": 21,
 					"file": "/tmp/subl stdin cqft4i.txt",
 					"settings":
 					{
@@ -1151,7 +1193,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 21,
+					"buffer": 22,
 					"file": "lib/server/index.js",
 					"settings":
 					{
@@ -1178,7 +1220,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 22,
+					"buffer": 23,
 					"file": "/tmp/subl stdin vMNVS9.txt",
 					"settings":
 					{
@@ -1204,11 +1246,11 @@
 					"type": "text"
 				},
 				{
-					"buffer": 23,
+					"buffer": 24,
 					"file": "package.json",
 					"settings":
 					{
-						"buffer_size": 738,
+						"buffer_size": 754,
 						"regions":
 						{
 						},
@@ -1232,7 +1274,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 24,
+					"buffer": 25,
 					"file": "bin/server.js",
 					"settings":
 					{
@@ -1258,7 +1300,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 25,
+					"buffer": 26,
 					"file": "bin/server",
 					"settings":
 					{
@@ -1284,7 +1326,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 26,
+					"buffer": 27,
 					"file": "lib/beans/hooks.rabbitmq/transport.js",
 					"settings":
 					{
@@ -1311,7 +1353,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 27,
+					"buffer": 28,
 					"file": "/tmp/subl stdin BHpauD.txt",
 					"settings":
 					{
@@ -1337,7 +1379,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 28,
+					"buffer": 29,
 					"file": "lib/beans/hooks.jsonp/transport.js",
 					"settings":
 					{
@@ -1364,7 +1406,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 29,
+					"buffer": 30,
 					"file": "/tmp/subl stdin axJpuE.txt",
 					"settings":
 					{
@@ -1390,7 +1432,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 30,
+					"buffer": 31,
 					"file": "/tmp/subl stdin Cu0Gz7.txt",
 					"settings":
 					{
@@ -1416,7 +1458,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 31,
+					"buffer": 32,
 					"file": "/tmp/subl stdin c3H8gx.txt",
 					"settings":
 					{
@@ -1442,7 +1484,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 32,
+					"buffer": 33,
 					"file": "/tmp/subl stdin 9lr9hN.txt",
 					"settings":
 					{
@@ -1468,7 +1510,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 33,
+					"buffer": 34,
 					"file": "lib/beans/hooks.jsonp/index.js",
 					"settings":
 					{
@@ -1494,7 +1536,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 34,
+					"buffer": 35,
 					"file": "examples/test1/hook1.js",
 					"settings":
 					{
@@ -1521,7 +1563,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 35,
+					"buffer": 36,
 					"file": "lib/beans/hooks.transport.jsonp/index.js",
 					"settings":
 					{
@@ -1547,7 +1589,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 36,
+					"buffer": 37,
 					"file": "lib/beans/hooks.transport.rabbitmq/index.js",
 					"settings":
 					{
@@ -1573,7 +1615,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 37,
+					"buffer": 38,
 					"file": "/tmp/subl stdin oBovSB.txt",
 					"settings":
 					{
@@ -1599,7 +1641,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 38,
+					"buffer": 39,
 					"file": "lib/beans/hooks.transport.rabbitmq/transport.js",
 					"settings":
 					{
@@ -1620,13 +1662,13 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 2131.0,
+						"translation.y": 2580.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
-					"buffer": 39,
+					"buffer": 40,
 					"file": "/tmp/subl stdin TkEVrb.txt",
 					"settings":
 					{
@@ -1652,7 +1694,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 40,
+					"buffer": 41,
 					"file": "lib/beans/hooks.core/utils.js",
 					"settings":
 					{
@@ -1679,7 +1721,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 41,
+					"buffer": 42,
 					"file": "examples/test1/hook2.js",
 					"settings":
 					{
@@ -1706,7 +1748,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 42,
+					"buffer": 43,
 					"file": "lib/beans/hooks.transport.rabbitmq/utils.js",
 					"settings":
 					{
@@ -1733,7 +1775,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 43,
+					"buffer": 44,
 					"file": "node_modules/amqp/amqp.js",
 					"settings":
 					{
@@ -1761,7 +1803,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 44,
+					"buffer": 45,
 					"file": "examples/cluster-1/http-proxy.js",
 					"settings":
 					{
@@ -1788,7 +1830,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 45,
+					"buffer": 46,
 					"file": "/tmp/subl stdin lsqMLp.txt",
 					"settings":
 					{
@@ -1814,7 +1856,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 46,
+					"buffer": 47,
 					"file": "lib/beans/hooks.transport.rabbitmq/bucket.js",
 					"settings":
 					{
@@ -1841,7 +1883,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 47,
+					"buffer": 48,
 					"file": "lib/beans/hooks.transport.jsonp/transport.js",
 					"settings":
 					{
@@ -1852,8 +1894,8 @@
 						"selection":
 						[
 							[
-								1087,
-								1087
+								589,
+								591
 							]
 						],
 						"settings":
@@ -1862,7 +1904,34 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 360.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 49,
+					"file": "examples/cluster-1/mem.js",
+					"settings":
+					{
+						"buffer_size": 286,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								268,
+								268
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
