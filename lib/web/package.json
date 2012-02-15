@@ -2,7 +2,7 @@
   "directories": {},
   "name": "daisy",
   "description": "Abstracted MQ for rabbitmq",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "author": "Craig Condon",
   "repository": {
     "type": "git",
@@ -12,7 +12,7 @@
     "crema": "*",
     "sprintf": "0.1.x",
     "beanpoll": "<0.3.0",
-    "haba": "<0.2.0",
+    "plugin": "<0.2.0",
     "amqp": "git+https://github.com/postwait/node-amqp",
     "cashew": "0.0.5",
     "structr": "<0.2.0",

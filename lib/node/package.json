@@ -12,7 +12,7 @@
     "crema": "*",
     "sprintf": "0.1.x",
     "beanpoll": "<0.3.0",
-    "haba": "<0.2.0",
+    "plugin": "<0.2.0",
     "amqp": "git+https://github.com/postwait/node-amqp",
     "cashew": "0.0.5",
     "structr": "<0.2.0",
