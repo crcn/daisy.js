@@ -94,7 +94,6 @@ exports.plugin = function(router, params) {
 		'pull load/*': function(req, res, mw) {
 			logger.verbose('loading daisy');
 
-			console.log(target)
 
 			for(var name in target) {
 				
