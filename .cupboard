@@ -2,3 +2,9 @@
 publish = make node, npm publish --force, git add -A, git commit -m "$@", git push origin master
 proj = subl --project project.sublime-project
 start = ./bin/server
+
+
+[ignore]
+lib
+project.sublime-project
+project.sublime-workspace

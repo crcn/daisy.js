@@ -442,7 +442,15 @@
 			"file": "src/common/plugins/hooks.core/index.js",
 			"settings":
 			{
-				"buffer_size": 2862,
+				"buffer_size": 2898,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/tmp/subl stdin U6Tlxz.txt",
+			"settings":
+			{
+				"buffer_size": 0,
 				"line_ending": "Unix"
 			}
 		},
@@ -483,6 +491,22 @@
 			"settings":
 			{
 				"buffer_size": 11140,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/tmp/subl stdin zrWsk9.txt",
+			"settings":
+			{
+				"buffer_size": 0,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": ".cupboard",
+			"settings":
+			{
+				"buffer_size": 239,
 				"line_ending": "Unix"
 			}
 		}
@@ -681,7 +705,7 @@
 	"groups":
 	[
 		{
-			"selected": 58,
+			"selected": 61,
 			"sheets":
 			[
 				{
@@ -2091,15 +2115,15 @@
 					"file": "src/common/plugins/hooks.core/index.js",
 					"settings":
 					{
-						"buffer_size": 2862,
+						"buffer_size": 2898,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1584,
-								1584
+								1972,
+								1972
 							]
 						],
 						"settings":
@@ -2108,14 +2132,14 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 257.0,
+						"translation.y": 1336.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 54,
-					"file": "/tmp/subl stdin CYuVy4.txt",
+					"file": "/tmp/subl stdin U6Tlxz.txt",
 					"settings":
 					{
 						"buffer_size": 0,
@@ -2141,7 +2165,7 @@
 				},
 				{
 					"buffer": 55,
-					"file": "/tmp/subl stdin fs1vfW.txt",
+					"file": "/tmp/subl stdin CYuVy4.txt",
 					"settings":
 					{
 						"buffer_size": 0,
@@ -2167,6 +2191,32 @@
 				},
 				{
 					"buffer": 56,
+					"file": "/tmp/subl stdin fs1vfW.txt",
+					"settings":
+					{
+						"buffer_size": 0,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 57,
 					"file": "src/common/plugins/hooks.core/transports.js",
 					"settings":
 					{
@@ -2193,7 +2243,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 57,
+					"buffer": 58,
 					"file": "lib/node/server/index.js",
 					"settings":
 					{
@@ -2220,7 +2270,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 58,
+					"buffer": 59,
 					"file": "lib/node/plugins/hooks.core/transports.js",
 					"settings":
 					{
@@ -2239,6 +2289,58 @@
 						{
 							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
 							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 60,
+					"file": "/tmp/subl stdin zrWsk9.txt",
+					"settings":
+					{
+						"buffer_size": 0,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 61,
+					"file": ".cupboard",
+					"settings":
+					{
+						"buffer_size": 239,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								189,
+								189
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
