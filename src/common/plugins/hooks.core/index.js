@@ -108,6 +108,8 @@ exports.plugin = function(router, params) {
 				if(!(transportConfigs instanceof Array)) transportConfigs = [transportConfigs];
 				
 				var running = transportConfigs.length;
+
+				if(!running) return mw.next();
 				
 				transportConfigs.forEach(function(cfg)
 				{

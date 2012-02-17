@@ -13,4 +13,4 @@ while(args.length)
 	}
 }
 
-require('../lib/server').connect(ops);
+require('../lib/node/server').connect(ops);

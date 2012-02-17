@@ -226,7 +226,7 @@
 			"file": "bin/server.js",
 			"settings":
 			{
-				"buffer_size": 222,
+				"buffer_size": 228,
 				"line_ending": "Unix"
 			}
 		},
@@ -442,7 +442,47 @@
 			"file": "src/common/plugins/hooks.core/index.js",
 			"settings":
 			{
-				"buffer_size": 2659,
+				"buffer_size": 2862,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/tmp/subl stdin CYuVy4.txt",
+			"settings":
+			{
+				"buffer_size": 0,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/tmp/subl stdin fs1vfW.txt",
+			"settings":
+			{
+				"buffer_size": 0,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/common/plugins/hooks.core/transports.js",
+			"settings":
+			{
+				"buffer_size": 11140,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "lib/node/server/index.js",
+			"settings":
+			{
+				"buffer_size": 2310,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "lib/node/plugins/hooks.core/transports.js",
+			"settings":
+			{
+				"buffer_size": 11140,
 				"line_ending": "Unix"
 			}
 		}
@@ -495,6 +535,10 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"onConnected",
+			"connect",
+			"connect'",
+			"transport",
 			"init",
 			"connectHook",
 			"haba",
@@ -618,11 +662,7 @@
 			"Commands",
 			"'response'",
 			"_onResponse",
-			"onError",
-			"register",
-			"ERROR",
-			"onRequest",
-			"fuck"
+			"onError"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -641,7 +681,7 @@
 	"groups":
 	[
 		{
-			"selected": 53,
+			"selected": 58,
 			"sheets":
 			[
 				{
@@ -1335,7 +1375,7 @@
 					"file": "bin/server.js",
 					"settings":
 					{
-						"buffer_size": 222,
+						"buffer_size": 228,
 						"regions":
 						{
 						},
@@ -2051,15 +2091,15 @@
 					"file": "src/common/plugins/hooks.core/index.js",
 					"settings":
 					{
-						"buffer_size": 2659,
+						"buffer_size": 2862,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2451,
-								2451
+								1584,
+								1584
 							]
 						],
 						"settings":
@@ -2068,7 +2108,140 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 1442.0,
+						"translation.y": 257.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 54,
+					"file": "/tmp/subl stdin CYuVy4.txt",
+					"settings":
+					{
+						"buffer_size": 0,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 55,
+					"file": "/tmp/subl stdin fs1vfW.txt",
+					"settings":
+					{
+						"buffer_size": 0,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 56,
+					"file": "src/common/plugins/hooks.core/transports.js",
+					"settings":
+					{
+						"buffer_size": 11140,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2395,
+								2395
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 811.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 57,
+					"file": "lib/node/server/index.js",
+					"settings":
+					{
+						"buffer_size": 2310,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								587,
+								587
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 285.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 58,
+					"file": "lib/node/plugins/hooks.core/transports.js",
+					"settings":
+					{
+						"buffer_size": 11140,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2013,
+								2013
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
