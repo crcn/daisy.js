@@ -474,7 +474,15 @@
 			"file": "src/common/plugins/hooks.core/transports.js",
 			"settings":
 			{
-				"buffer_size": 11140,
+				"buffer_size": 11143,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/tmp/subl stdin 7TstHG.txt",
+			"settings":
+			{
+				"buffer_size": 0,
 				"line_ending": "Unix"
 			}
 		},
@@ -490,7 +498,7 @@
 			"file": "lib/node/plugins/hooks.core/transports.js",
 			"settings":
 			{
-				"buffer_size": 11140,
+				"buffer_size": 11143,
 				"line_ending": "Unix"
 			}
 		},
@@ -507,6 +515,14 @@
 			"settings":
 			{
 				"buffer_size": 239,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/tmp/subl stdin 3Po7GT.txt",
+			"settings":
+			{
+				"buffer_size": 0,
 				"line_ending": "Unix"
 			}
 		}
@@ -559,6 +575,8 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"hooked ",
+			"remote ",
 			"onConnected",
 			"connect",
 			"connect'",
@@ -684,9 +702,7 @@
 			"_onResponse",
 			"onReq",
 			"Commands",
-			"'response'",
-			"_onResponse",
-			"onError"
+			"'response'"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -705,7 +721,7 @@
 	"groups":
 	[
 		{
-			"selected": 61,
+			"selected": 57,
 			"sheets":
 			[
 				{
@@ -2220,15 +2236,15 @@
 					"file": "src/common/plugins/hooks.core/transports.js",
 					"settings":
 					{
-						"buffer_size": 11140,
+						"buffer_size": 11143,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2395,
-								2395
+								4446,
+								4453
 							]
 						],
 						"settings":
@@ -2237,13 +2253,39 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 811.0,
+						"translation.y": 3001.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 58,
+					"file": "/tmp/subl stdin 7TstHG.txt",
+					"settings":
+					{
+						"buffer_size": 0,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 59,
 					"file": "lib/node/server/index.js",
 					"settings":
 					{
@@ -2270,19 +2312,19 @@
 					"type": "text"
 				},
 				{
-					"buffer": 59,
+					"buffer": 60,
 					"file": "lib/node/plugins/hooks.core/transports.js",
 					"settings":
 					{
-						"buffer_size": 11140,
+						"buffer_size": 11143,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2013,
-								2013
+								0,
+								0
 							]
 						],
 						"settings":
@@ -2297,7 +2339,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 60,
+					"buffer": 61,
 					"file": "/tmp/subl stdin zrWsk9.txt",
 					"settings":
 					{
@@ -2323,7 +2365,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 61,
+					"buffer": 62,
 					"file": ".cupboard",
 					"settings":
 					{
@@ -2336,6 +2378,32 @@
 							[
 								189,
 								189
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 63,
+					"file": "/tmp/subl stdin 3Po7GT.txt",
+					"settings":
+					{
+						"buffer_size": 0,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
 							]
 						],
 						"settings":
