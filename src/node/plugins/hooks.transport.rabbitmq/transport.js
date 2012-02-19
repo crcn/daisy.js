@@ -221,18 +221,25 @@ var Transport = Structr({
 
 		
 		var hooks = [], self = this;
-		
-		this._hooksBucket.dump(function(hook) {
+
+		function addHook(hook) {
 			var key = utils.toAMQPKey(hook.channel);
 
 			hooks.push({ channel: key, type: hook.type });
 
 			self._messageQueue.bind(self._messageExchange, key);
-		});
+		}
+
+		function addHooks(hooks) {
+			hooks.forEach(addHook);
+
+			//register the application, and return the hooks we can tap into
+			self._handshakeExchange.publish('register', hooks, self._mops({ replyTo:  self._handshakeQueue.name, headers: { appName: self.name } }));
+		}
 
 
-		//register the application, and return the hooks we can tap into
-		this._handshakeExchange.publish('register', hooks, this._mops({ replyTo:  this._handshakeQueue.name, headers: { appName: this.name } }));
+		addHooks(this._hooksBucket.hooks())
+		this._hooksBucket.on('hooks', addHooks);
 	},
 	
 	/**
