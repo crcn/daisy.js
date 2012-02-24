@@ -1,5 +1,4 @@
 {
-  "directories": {},
   "name": "daisy",
   "description": "Abstracted MQ for rabbitmq",
   "version": "0.1.9",
@@ -7,6 +6,9 @@
   "repository": {
     "type": "git",
     "url": "http://github.com/crcn/daisy.git"
+  },
+  "directories": {
+    "mesh-src": "./src"
   },
   "dependencies": {
     "crema": "*",
@@ -22,6 +24,7 @@
     "yaconfig": "<=0.1.0",
     "mesh-winston": "0.0.x"
   },
+  "main": "./lib/node/index.js",
   "bin": {
     "daisy": "./bin/server"
   }

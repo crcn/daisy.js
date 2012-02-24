@@ -16,6 +16,7 @@ var Transaction = Structr({
 		this._collection = collection;
 		
 		this._em = new EventEmitter();
+		this._em.setMaxListeners(0);
 	},
 	
 	/**
