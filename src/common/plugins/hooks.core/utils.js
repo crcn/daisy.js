@@ -10,8 +10,6 @@ exports.generalizeParams = function(channel) {
 
 			channel = channel.replace('/'+params[i], '/:__param' + i);
 
-
-
 		}
 	}
 
@@ -23,7 +21,7 @@ exports.generalizeParams = function(channel) {
 exports.siftChannels = function(router) {
 
 	return _.map(router.channels({ siftTags: exports.tagSearch }), function(channel) {
-		return { channel: channel.path, type: channel.type };
+		return { channel: channel.path || channel.value, type: channel.type };
 	})
 
 }

@@ -447,6 +447,14 @@
 			}
 		},
 		{
+			"file": "/tmp/subl stdin O1H5yi.txt",
+			"settings":
+			{
+				"buffer_size": 0,
+				"line_ending": "Unix"
+			}
+		},
+		{
 			"file": "/tmp/subl stdin xaoya6.txt",
 			"settings":
 			{
@@ -565,7 +573,7 @@
 			"file": "src/node/plugins/hooks.transport.rabbitmq/transport.js",
 			"settings":
 			{
-				"buffer_size": 6059,
+				"buffer_size": 6126,
 				"line_ending": "Unix"
 			}
 		},
@@ -2255,14 +2263,14 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 300.0,
+						"translation.y": 1664.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 54,
-					"file": "/tmp/subl stdin xaoya6.txt",
+					"file": "/tmp/subl stdin O1H5yi.txt",
 					"settings":
 					{
 						"buffer_size": 0,
@@ -2288,7 +2296,7 @@
 				},
 				{
 					"buffer": 55,
-					"file": "/tmp/subl stdin U6Tlxz.txt",
+					"file": "/tmp/subl stdin xaoya6.txt",
 					"settings":
 					{
 						"buffer_size": 0,
@@ -2314,7 +2322,7 @@
 				},
 				{
 					"buffer": 56,
-					"file": "/tmp/subl stdin CYuVy4.txt",
+					"file": "/tmp/subl stdin U6Tlxz.txt",
 					"settings":
 					{
 						"buffer_size": 0,
@@ -2340,7 +2348,7 @@
 				},
 				{
 					"buffer": 57,
-					"file": "/tmp/subl stdin fs1vfW.txt",
+					"file": "/tmp/subl stdin CYuVy4.txt",
 					"settings":
 					{
 						"buffer_size": 0,
@@ -2366,6 +2374,32 @@
 				},
 				{
 					"buffer": 58,
+					"file": "/tmp/subl stdin fs1vfW.txt",
+					"settings":
+					{
+						"buffer_size": 0,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 59,
 					"file": "src/common/plugins/hooks.core/transports.js",
 					"settings":
 					{
@@ -2392,7 +2426,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 59,
+					"buffer": 60,
 					"file": "/tmp/subl stdin miQc2O.txt",
 					"settings":
 					{
@@ -2418,7 +2452,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 60,
+					"buffer": 61,
 					"file": "/tmp/subl stdin 7TstHG.txt",
 					"settings":
 					{
@@ -2444,7 +2478,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 61,
+					"buffer": 62,
 					"file": "lib/node/server/index.js",
 					"settings":
 					{
@@ -2471,7 +2505,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 62,
+					"buffer": 63,
 					"file": "lib/node/plugins/hooks.core/transports.js",
 					"settings":
 					{
@@ -2498,7 +2532,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 63,
+					"buffer": 64,
 					"file": "/tmp/subl stdin zrWsk9.txt",
 					"settings":
 					{
@@ -2524,7 +2558,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 64,
+					"buffer": 65,
 					"file": ".cupboard",
 					"settings":
 					{
@@ -2550,7 +2584,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 65,
+					"buffer": 66,
 					"file": "/tmp/subl stdin 3Po7GT.txt",
 					"settings":
 					{
@@ -2576,7 +2610,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 66,
+					"buffer": 67,
 					"file": "lib/node/plugins/hooks.transport.rabbitmq/transport.js",
 					"settings":
 					{
@@ -2603,7 +2637,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 67,
+					"buffer": 68,
 					"file": "lib/node/plugins/hooks.transport.rabbitmq/bucket.js",
 					"settings":
 					{
@@ -2630,19 +2664,19 @@
 					"type": "text"
 				},
 				{
-					"buffer": 68,
+					"buffer": 69,
 					"file": "src/node/plugins/hooks.transport.rabbitmq/transport.js",
 					"settings":
 					{
-						"buffer_size": 6059,
+						"buffer_size": 6126,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								512,
-								512
+								728,
+								728
 							]
 						],
 						"settings":
@@ -2651,13 +2685,13 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 1170.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
-					"buffer": 69,
+					"buffer": 70,
 					"file": "/tmp/subl stdin 1L4tSX.txt",
 					"settings":
 					{
@@ -2683,7 +2717,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 70,
+					"buffer": 71,
 					"file": "/tmp/subl stdin hbAONl.txt",
 					"settings":
 					{
@@ -2709,7 +2743,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 71,
+					"buffer": 72,
 					"file": "src/node/plugins/hooks.transport.rabbitmq/bucket.js",
 					"settings":
 					{
@@ -2736,7 +2770,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 72,
+					"buffer": 73,
 					"file": "/tmp/subl stdin T1kjVu.txt",
 					"settings":
 					{
@@ -2762,7 +2796,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 73,
+					"buffer": 74,
 					"file": "src/common/plugins/hooks.core/transactions.js",
 					"settings":
 					{
@@ -2789,7 +2823,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 74,
+					"buffer": 75,
 					"file": "lib/node/index.js",
 					"settings":
 					{
@@ -2816,7 +2850,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 75,
+					"buffer": 76,
 					"file": "makefile",
 					"settings":
 					{
@@ -2842,7 +2876,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 76,
+					"buffer": 77,
 					"file": "/tmp/subl stdin 0xoezW.txt",
 					"settings":
 					{
