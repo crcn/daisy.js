@@ -434,7 +434,7 @@
 			"file": "src/common/index.js",
 			"settings":
 			{
-				"buffer_size": 275,
+				"buffer_size": 191,
 				"line_ending": "Unix"
 			}
 		},
@@ -442,7 +442,7 @@
 			"file": "src/common/plugins/hooks.core/index.js",
 			"settings":
 			{
-				"buffer_size": 2960,
+				"buffer_size": 2976,
 				"line_ending": "Unix"
 			}
 		},
@@ -514,7 +514,7 @@
 			"file": "lib/node/plugins/hooks.core/transports.js",
 			"settings":
 			{
-				"buffer_size": 11196,
+				"buffer_size": 11195,
 				"line_ending": "Unix"
 			}
 		},
@@ -570,6 +570,14 @@
 			}
 		},
 		{
+			"file": "/tmp/subl stdin 1L4tSX.txt",
+			"settings":
+			{
+				"buffer_size": 0,
+				"line_ending": "Unix"
+			}
+		},
+		{
 			"file": "/tmp/subl stdin hbAONl.txt",
 			"settings":
 			{
@@ -605,7 +613,15 @@
 			"file": "lib/node/index.js",
 			"settings":
 			{
-				"buffer_size": 191,
+				"buffer_size": 275,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "makefile",
+			"settings":
+			{
+				"buffer_size": 80,
 				"line_ending": "Unix"
 			}
 		}
@@ -658,6 +674,8 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"params.remote",
+			"params.remove",
 			"onConnect",
 			"onConnected",
 			"connect",
@@ -783,9 +801,7 @@
 			"messageE",
 			"_request",
 			"'body'",
-			"_onRequestPar",
-			"_payl",
-			"PART"
+			"_onRequestPar"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -804,7 +820,7 @@
 	"groups":
 	[
 		{
-			"selected": 68,
+			"selected": 75,
 			"sheets":
 			[
 				{
@@ -2187,15 +2203,15 @@
 					"file": "src/common/index.js",
 					"settings":
 					{
-						"buffer_size": 275,
+						"buffer_size": 191,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								230,
-								230
+								150,
+								150
 							]
 						],
 						"settings":
@@ -2214,15 +2230,15 @@
 					"file": "src/common/plugins/hooks.core/index.js",
 					"settings":
 					{
-						"buffer_size": 2960,
+						"buffer_size": 2976,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2032,
-								2032
+								501,
+								501
 							]
 						],
 						"settings":
@@ -2231,7 +2247,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 1454.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -2451,15 +2467,15 @@
 					"file": "lib/node/plugins/hooks.core/transports.js",
 					"settings":
 					{
-						"buffer_size": 11196,
+						"buffer_size": 11195,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3380,
-								3380
+								0,
+								0
 							]
 						],
 						"settings":
@@ -2511,8 +2527,8 @@
 						"selection":
 						[
 							[
-								189,
-								189
+								25,
+								25
 							]
 						],
 						"settings":
@@ -2634,7 +2650,7 @@
 				},
 				{
 					"buffer": 69,
-					"file": "/tmp/subl stdin hbAONl.txt",
+					"file": "/tmp/subl stdin 1L4tSX.txt",
 					"settings":
 					{
 						"buffer_size": 0,
@@ -2660,6 +2676,32 @@
 				},
 				{
 					"buffer": 70,
+					"file": "/tmp/subl stdin hbAONl.txt",
+					"settings":
+					{
+						"buffer_size": 0,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 71,
 					"file": "src/node/plugins/hooks.transport.rabbitmq/bucket.js",
 					"settings":
 					{
@@ -2686,7 +2728,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 71,
+					"buffer": 72,
 					"file": "/tmp/subl stdin T1kjVu.txt",
 					"settings":
 					{
@@ -2712,7 +2754,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 72,
+					"buffer": 73,
 					"file": "src/common/plugins/hooks.core/transactions.js",
 					"settings":
 					{
@@ -2739,25 +2781,51 @@
 					"type": "text"
 				},
 				{
-					"buffer": 73,
+					"buffer": 74,
 					"file": "lib/node/index.js",
 					"settings":
 					{
-						"buffer_size": 191,
+						"buffer_size": 275,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								150,
-								150
+								0,
+								0
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
 							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 75,
+					"file": "makefile",
+					"settings":
+					{
+						"buffer_size": 80,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								75,
+								75
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Makefile/Makefile.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,

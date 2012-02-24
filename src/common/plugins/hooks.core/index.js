@@ -12,7 +12,7 @@ exports.plugin = function(router, params) {
 
 	//target hooks
 	var target = params.target || params.transport || {},
-	remoteName = this.params().name,
+	remoteName = params.name,
 	transports = new Transports(router, params.scope, remoteName),
 	transportTypes = {};
 
