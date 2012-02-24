@@ -49,7 +49,7 @@ exports.plugin = function(router, params) {
 
 
 			transports.publishHooks([{
-				channel: listener.route.channel.value,
+				path: listener.route.path.value,
 				type: listener.route.type
 			}]);
 				
@@ -143,7 +143,7 @@ exports.plugin = function(router, params) {
 		'pull -hook -method=GET hooks': function(req, res) {
 
 			//TODO - get perm level of given session
-			return vine.result(utils.siftChannels(router)).end(res);
+			return vine.result(utils.siftPaths(router)).end(res);
 		},
 		
 		/**

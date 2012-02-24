@@ -19,9 +19,9 @@ var Request = {
 }
 
 
-function cleanChannel(channel) {
+function cleanPath(path) {
 	
-	return channel.replace(/^\/+|\/+$/,'');
+	return path.replace(/^\/+|\/+$/,'');
 
 }
 
@@ -45,19 +45,19 @@ var TransportWrapper = Structr({
 		this.scope = collection.scope || [];
 
 		
-		//the router that handles all the channel requests
+		//the router that handles all the path requests
 		this._router = collection._router;
 		
 		//the transport which broadcasts routes over the network
 		this._transport = transport;
 		
-		//channels we've already hooked into
+		//paths we've already hooked into
 		this._hooked = {};
 
 		this._remoteRouters = {};
 
 		
-		//any channels which should be ignored. This is a dirty method of making sure requests
+		//any paths which should be ignored. This is a dirty method of making sure requests
 		//don't get re-broadcasted out to the same transport
 		this._ignore = {};
 		
@@ -74,7 +74,7 @@ var TransportWrapper = Structr({
 		//called when an app on the network is sending a request that *this* app can handle
 		transport.onMessage = this.getMethod('onMessage');
 		
-		//what happens when a call is made to a channel that doens't exist
+		//what happens when a call is made to a path that doens't exist
 		transport.onNoRoute = this.getMethod('onNoRoute');
 
 		//
@@ -120,9 +120,9 @@ var TransportWrapper = Structr({
 		hooks.forEach(function(hook) {
 
 
-			self._hooked[cleanChannel(utils.generalizeParams(hook.channel))]  = 1;
+			self._hooked[cleanPath(utils.generalizeParams(hook.path))]  = 1;
 
-			logger.verbose(sprintf('publish hook %s', hook.channel));
+			logger.verbose(sprintf('publish hook %s', hook.path));
 		});
 		
 		this._transport.publishHooks(hooks);
@@ -187,9 +187,9 @@ var TransportWrapper = Structr({
 
 		} else {
 
-			this._ignore[headers.channel] = 1;
+			this._ignore[headers.path] = 1;
 			this._onRequest(data, headers, from);
-			delete this._ignore[headers.channel];
+			delete this._ignore[headers.path];
 
 		}
 	},
@@ -197,12 +197,12 @@ var TransportWrapper = Structr({
 	/**
 	 */
 	
-	'onNoRoute': function(channel) {      
+	'onNoRoute': function(path) {      
 	                             
 
-		(this._transactions.live(channel) || []).forEach(function(transaction) {
+		(this._transactions.live(path) || []).forEach(function(transaction) {
 
-			transaction.emit('response', { error: 'Route ' + channel + ' does not exist' });
+			transaction.emit('response', { error: 'Route ' + path + ' does not exist' });
 
 		});
 	},
@@ -225,10 +225,10 @@ var TransportWrapper = Structr({
 		};
 
 
-		logger.verbose(sprintf('hooked %s %s', headers.type.toUpperCase(), headers.channel));
+		logger.verbose(sprintf('hooked %s %s', headers.type.toUpperCase(), headers.path));
 
 
-		var req = this._router.request(headers.channel).
+		var req = this._router.request(headers.path).
 
 		//type of route: push, pull, collect, etc.
 		type(headers.type).
@@ -262,7 +262,7 @@ var TransportWrapper = Structr({
 
 		if(!req.hasListeners()) {
 			
-			logger.verbose(sprintf('channel %s does not exist', headers.channel));
+			logger.verbose(sprintf('path %s does not exist', headers.path));
 
 			respond({ error: new Error('route does not exist') }, Response.response);
 			return;
@@ -304,16 +304,16 @@ var TransportWrapper = Structr({
 
 
 
-		Object.keys(this._hooked).forEach(function(channel) {
+		Object.keys(this._hooked).forEach(function(path) {
 
 			Object.keys(router.directors).forEach(function(type) {
 
-				router.on(channel, { type: type }, function(req, res, mw) {
+				router.on(path, { type: type }, function(req, res, mw) {
 							
 					var mw = this,
 					msg = mw.message;
 
-					self._dispatch(mw, type, crema.stringifyPaths(mw.current.channel.paths, mw.current.params), replyTo);
+					self._dispatch(mw, type, crema.stringifySegments(mw.current.path.segments, mw.current.params), replyTo);
 				});
 
 			})
@@ -362,11 +362,11 @@ var TransportWrapper = Structr({
 	/**
 	 */
 
-	'_getQueue': function(channel) {
+	'_getQueue': function(path) {
 
 		if(!this.scope.length) return null;
 
-		var queues = this._hooked[channel] || [];
+		var queues = this._hooked[path] || [];
 
 		return _.intersection(queues, this.scope);
 	},
@@ -375,18 +375,22 @@ var TransportWrapper = Structr({
 	 * hooks a *remote* route to the app
 	 */
 	
-	'_hook': function(channel, types, queues) {
+	'_hook': function(route, types, queues) {
 
-		if(typeof channel == 'object') {
-			types = [channel.type];
-			channel = channel.channel;
+		var path;
+
+		if(typeof path == 'object') {
+			types = [route.type];
+			path = route.path;
+		} else {
+			path = route;
 		}
 
 		if(!types) types = [];
 		if(!queues) queues = [];
 
 
-		channel = cleanChannel(channel);
+		path = cleanPath(path);
 
 		
 		//router
@@ -403,46 +407,45 @@ var TransportWrapper = Structr({
 
 		self = this;
 
-		this._hooked[channel] = queues || [];
+		this._hooked[path] = queues || [];
 
 
 		
 		try {
 
-			var channelExpr = crema.parseChannel(channel);
+			var pathExpr = crema.parsePath(path);
 
 
 			types.forEach(function(type) {
 
 				var director = r.director(type),
-				req = r.request(channel).type(type),
+				req = r.request(path).type(type),
 				hasListener = req.exists(),
 				hasPrivate = req.tag('private', true).exists();
 
 
 				if(hasPrivate || (hasListener && !director.passive)) return;
 
-				// if(hasPrivate || (r.routeExists({ channel: channelExpr }) && (!hasListener || director.passive))) return;
+				// if(hasPrivate || (r.routeExists({ path: channelExpr }) && (!hasListener || director.passive))) return;
 
 				// console.log(hasListener+" "+director.passive)
 
-				logger.verbose(sprintf('hooking %s %s', type, channel));
+				logger.verbose(sprintf('hooking %s %s', type, path));
 				
-				r.on(channel, { tags: { hooked: '*', unfilterable: '*', stream: true, priority: -999999 }, type: type }, function(req, res) {
+				r.on(path, { tags: { hooked: '*', unfilterable: '*', stream: true, priority: -999999 }, type: type }, function(req, res) {
 
 					var mw = this, 
-					msg = mw.message,
-					params = msg.params,
-					paths = [];
+					msg = mw.request,
+					params = msg.params;
 
-					path = crema.stringifyPaths(mw.current.channel.paths, mw.current.params);
+					path = crema.stringifySegments(mw.current.path.segments, mw.current.params);
 
-					if(msg.from != self._router || msg.headers.ignoreHook) {
+					if(msg.from != self._router || mw.headers.ignoreHook) {
 						throw new Error('cannot proxy "' + path + '" request');
 					}
 
 
-					self._dispatch(mw, type, path, msg.headers.queue || self._getQueue(channel));
+					self._dispatch(mw, type, path, msg.headers.queue || self._getQueue(path));
 				});
 
 			});
@@ -457,12 +460,12 @@ var TransportWrapper = Structr({
 	},
 
 
-	'_dispatch': function(mw, type, channel, queue) {
+	'_dispatch': function(mw, type, path, queue) {
 		
 		var msg = mw.message, self = this;
 
 
-		logger.verbose(sprintf('remote %s %s', type.toUpperCase(), channel))
+		logger.verbose(sprintf('remote %s %s', type.toUpperCase(), path))
 
 
 		function respond(err, result) {
@@ -483,7 +486,7 @@ var TransportWrapper = Structr({
 
 
 			var transaction = self._transactions.
-			create(channel).
+			create(path).
 			prepare(type, {
 				queue: queue,
 				tags: msg.filter, //check this tomorrow Friday, February 03, 2012
@@ -512,7 +515,7 @@ var TransportWrapper = Structr({
 			//probably out of scope
 			if(!success) {
 				transaction.dispose();
-				respond(new Error('Could not send '+channel+'. Most likely a target was not set.'));
+				respond(new Error('Could not send '+path+'. Most likely a target was not set.'));
 			}
 		}
 
@@ -571,7 +574,7 @@ module.exports = Structr({
 		
 		this._transports.push(wrapper);
 
-		wrapper.publishHooks(utils.siftChannels(this._router));
+		wrapper.publishHooks(utils.siftPaths(this._router));
 
 		return wrapper;
 	}

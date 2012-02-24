@@ -1,27 +1,27 @@
 var _ = require('underscore');
 
 
-exports.generalizeParams = function(channel) {
+exports.generalizeParams = function(path) {
 
-	var params = channel.match(/\:\w+/g);
+	var params = path.match(/\:\w+/g);
 
 	if(params) {
 		for(var i = 0, n = params.length; i < n; i++) {
 
-			channel = channel.replace('/'+params[i], '/:__param' + i);
+			path = path.replace('/'+params[i], '/:__param' + i);
 
 		}
 	}
 
 
-	return channel;
+	return path;
 }
 
 
-exports.siftChannels = function(router) {
+exports.siftPaths = function(router) {
 
-	return _.map(router.channels({ siftTags: exports.tagSearch }), function(channel) {
-		return { channel: channel.path || channel.value, type: channel.type };
+	return _.map(router.paths({ siftTags: exports.tagSearch }), function(path) {
+		return { path: path.path || path.value, type: path.type };
 	})
 
 }

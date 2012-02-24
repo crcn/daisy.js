@@ -98,11 +98,11 @@ var Transport = Structr({
 	/**
 	 */
 	
-	'broadcast': function(channel, message, headers) {	 
+	'broadcast': function(path, message, headers) {	 
 	                       
 		headers.appName = this.name;
 
-		this._messageExchange.publish(utils.toAMQPKey(channel), { data: message }, this._mops({ headers: headers, replyTo: this._replyToQueue.name }));
+		this._messageExchange.publish(utils.toAMQPKey(path), { data: message }, this._mops({ headers: headers, replyTo: this._replyToQueue.name }));
 		return true;
 	},
 	
@@ -225,9 +225,9 @@ var Transport = Structr({
 		var hooks = [], self = this;
 
 		function addHook(hook) {
-			var key = utils.toAMQPKey(hook.channel);
+			var key = utils.toAMQPKey(hook.path);
 
-			hooks.push({ channel: key, type: hook.type });
+			hooks.push({ path: key, type: hook.type });
 
 			self._messageQueue.bind(self._messageExchange, key);
 		}
