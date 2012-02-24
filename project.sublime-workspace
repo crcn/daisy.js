@@ -514,7 +514,7 @@
 			"file": "lib/node/plugins/hooks.core/transports.js",
 			"settings":
 			{
-				"buffer_size": 11164,
+				"buffer_size": 11196,
 				"line_ending": "Unix"
 			}
 		},
@@ -543,13 +543,10 @@
 			}
 		},
 		{
-			"contents": "var amqp = require('amqp'),\nStructr = require('structr'),\nBucket = require('./bucket'),\nutils = require('./utils'),\n_ = require('underscore'),\ncashew = require('cashew'),\nlogger = require('mesh-winston').loggers.get('daisy');\n\nexports.name = 'rabbitmq';\n\nvar Transport = Structr({\n\n	/**\n	 */\n	\n	'__construct': function(params) {\n\n		this.host = params.host;\n		this.name = params.name;\n		this.idGen = cashew.register('rabbitmq');\n		this.replyToName = this.name + '.replyTo.' + this.idGen.uid();\n\n		this.connect();\n		\n		this._hooksBucket = new Bucket();\n		this._appHooks = [];\n	},\n	\n	/**\n	 * handshake with rabbitmq\n	 */\n	\n	'connect': function() {\n\n		var connection = this.connection = amqp.createConnection({ host: this.host }),\n		self = this;\n		\n		connection.on('ready', function () {\n\n			self._connectionReady();\n		});\n\n		connection.on('error', function(error) {\n			//console.error(error);\n		});//fix thrown error\n\n		connection.on('close', function() {\n\n			console.log('Rabbit MQ has closed, restarting...');\n\n			self.onDisconnected();\n\n			setTimeout(function() {\n				self.connect();\n			}, 5000);\n		})\n	},\n	\n	/**\n	 * these hooks are published to the world\n	 */\n	\n	'publishHooks': function(hooks) {\n\n		this._hooksBucket.add(hooks);\n	},\n	\n	/** \n	 * Returned hooks, and any siblings on the network\n	 */\n	\n	'onHandshake': function(handshake) { },\n	\n	/**\n	 * when a call is coming in\n	 */\n	\n	'onMessage': function(message, headers, from) { },\n\n	/**\n	 * called ONCE, or if rabbitmq goes down and reconnects\n	 */\n\n	'onConnected': function() { },\n\n	/**\n	 */\n\n	'onDisconnected': function(){ },\n	\n	/**\n	 */\n	\n	'broadcast': function(channel, message, headers) {	 \n	                       \n		headers.appName = this.name;\n\n		this._messageExchange.publish(utils.toAMQPKey(channel), { data: message }, this._mops({ headers: headers, replyTo: this._replyToQueue.name }));\n		return true;\n	},\n	\n	/**\n	 */\n	\n	'direct': function(queue, message, headers) {  \n	                         	\n	    \n		headers.appName = this.name;\n\n		//for specified scope\n		var queues = queue instanceof Array ? queue : [queue];	\n\n		for(var i = queues.length; i--;) {\n			this.connection.publish(queues[i], { data: message }, this._mops({ headers: headers, replyTo: this._replyToQueue.name  }));\n		}\n\n		return !!queues.length;\n	},\n	\n	/**\n	 */\n	\n	'_connectionReady': function() {\n\n		this._connected = false;\n		this.__messageExchange = null;\n		this._prepHooksExchange();\n	},\n	\n	/**\n	 */\n	\n	'_prepHooksExchange': function() {\n\n		var self = this;\n		\n		this._handshakeExchange = this.connection.exchange('handshake', { type: 'topic' }, function(exchange) {\n\n			queue = self._handshakeQueue = self.connection.queue(self.replyToName + '.handshake', function() {\n\n				queue.subscribe(self.getMethod('_onHandshake'));\n				\n				self._prepMessagesExchange();\n			});\n\n			var reconnectQueue = self._reconnectQueue = self.connection.queue(self.replyToName + '.pingreconnect', function() {\n				\n				reconnectQueue.bind(self._handshakeExchange, 'connected');\n				reconnectQueue.subscribe(self.getMethod('_onServerReconnect'));\n			\n			});\n		});\n	},\n\n	\n	\n	/**\n	 */\n	\n	'_prepMessagesExchange': function() {\n\n		var self = this\n\n		this._messageExchange = this.connection.exchange('messages', { type: 'topic' }, function(exchange) {\n\n			//self._messageExchange = exchange;\n\n			var onMessage = function(message, headers, props) {\n\n\n				var from = {\n					replyTo: props.replyTo,\n					isSelf:props.replyTo == self.replyToName,\n					name: headers.appName\n				};      \n\n				self.onMessage(message.data, headers, from);\n				\n			}\n\n\n			var queue = self._messageQueue = self.connection.queue(self.name, { 'durable': true }, function() {\n				//listen for incomming messages. They must be acknowledged\n				queue.subscribe(onMessage);\n				\n				self._onServerReconnect();\n			});\n\n			var replyToQueue = self._replyToQueue = self.connection.queue(self.replyToName, { 'durable': false }, function() {\n\n				replyToQueue.subscribe(onMessage);\n\n			});\n		});     \n		\n		function onReturn(ret) {  \n		                                      \n			if(ret.replyText == 'NO_ROUTE' && self.onNoRoute) {    \n			                                                     \n				self.onNoRoute(utils.toBeanpoleRoute(ret.routingKey));\n\n			}\n		}\n\n		//handle any routes which aren't registered\n		this._messageExchange.on('basicReturn', onReturn);         \n		this.connection.exchange().on('basicReturn', onReturn);\n	},\n\n	/**\n	 */\n\n	'_onServerReconnect': function(handshake, headers, props) {\n\n		if(this._connected || !this._messageExchange) return;\n\n		\n		var hooks = [], self = this;\n\n		function addHook(hook) {\n			var key = utils.toAMQPKey(hook.channel);\n\n			hooks.push({ channel: key, type: hook.type });\n\n			self._messageQueue.bind(self._messageExchange, key);\n		}\n\n		function addHooks(hooks) {\n			hooks.forEach(addHook);\n\n			//register the application, and return the hooks we can tap into\n			self._handshakeExchange.publish('register', hooks, self._mops({ replyTo:  self._handshakeQueue.name, headers: { appName: self.name } }));\n		}\n\n\n		addHooks(this._hooksBucket.hooks())\n		this._hooksBucket.on('hooks', addHooks);\n	},\n	\n	/**\n	 */\n	\n	'_onHandshake': function(handshake, headers, props) {\n		var hooks = {};\n\n\n\n		for(var route in handshake.hooks) {\n			hooks[utils.toBeanpoleRoute(route)] = handshake.hooks[route];\n		}\n\n\n		handshake.hooks = hooks;\n		\n		this.onHandshake(handshake);\n		\n		\n		//after the first handshake, listen for any new hooks taht come in\n		if(!this._connected) {\n\n			this._connected = true;\n			\n			//after we get the hooks, listen for any new comming in\n			this._handshakeQueue.bind(this._handshakeExchange, 'new.hooks');\n\n			this.onConnected();\n		}\n	},\n	\n	/**\n	 */\n	\n	'_mops': function(ops) {\n\n		if(!ops) ops = {};\n		\n		ops.contentType = 'application/json';\n		ops.mandatory = true;\n		\n		return ops;\n	}\n});\n\nexports.connect = function(params) {\n\n	return new Transport(params);\n\n}",
 			"file": "lib/node/plugins/hooks.transport.rabbitmq/transport.js",
-			"file_size": 5913,
-			"file_write_time": 1329633776000000,
 			"settings":
 			{
-				"buffer_size": 5890,
+				"buffer_size": 6059,
 				"line_ending": "Unix"
 			}
 		},
@@ -568,7 +565,15 @@
 			"file": "src/node/plugins/hooks.transport.rabbitmq/transport.js",
 			"settings":
 			{
-				"buffer_size": 6039,
+				"buffer_size": 6059,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/tmp/subl stdin hbAONl.txt",
+			"settings":
+			{
+				"buffer_size": 0,
 				"line_ending": "Unix"
 			}
 		},
@@ -593,6 +598,14 @@
 			"settings":
 			{
 				"buffer_size": 4633,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "lib/node/index.js",
+			"settings":
+			{
+				"buffer_size": 191,
 				"line_ending": "Unix"
 			}
 		}
@@ -645,6 +658,9 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"onConnect",
+			"onConnected",
+			"connect",
 			"EventEm",
 			"hooked",
 			"publish",
@@ -769,10 +785,7 @@
 			"'body'",
 			"_onRequestPar",
 			"_payl",
-			"PART",
-			"headers",
-			"type",
-			"prepare"
+			"PART"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -2208,8 +2221,8 @@
 						"selection":
 						[
 							[
-								2236,
-								2236
+								2032,
+								2032
 							]
 						],
 						"settings":
@@ -2218,7 +2231,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 1454.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -2438,15 +2451,15 @@
 					"file": "lib/node/plugins/hooks.core/transports.js",
 					"settings":
 					{
-						"buffer_size": 11164,
+						"buffer_size": 11196,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								3380,
+								3380
 							]
 						],
 						"settings":
@@ -2455,7 +2468,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 1381.0,
+						"translation.y": 2056.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -2543,15 +2556,15 @@
 					"file": "lib/node/plugins/hooks.transport.rabbitmq/transport.js",
 					"settings":
 					{
-						"buffer_size": 5890,
+						"buffer_size": 6059,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								5113,
-								4409
+								512,
+								329
 							]
 						],
 						"settings":
@@ -2560,7 +2573,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 3106.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -2597,15 +2610,15 @@
 					"file": "src/node/plugins/hooks.transport.rabbitmq/transport.js",
 					"settings":
 					{
-						"buffer_size": 6039,
+						"buffer_size": 6059,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								253,
-								253
+								512,
+								512
 							]
 						],
 						"settings":
@@ -2621,6 +2634,32 @@
 				},
 				{
 					"buffer": 69,
+					"file": "/tmp/subl stdin hbAONl.txt",
+					"settings":
+					{
+						"buffer_size": 0,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 70,
 					"file": "src/node/plugins/hooks.transport.rabbitmq/bucket.js",
 					"settings":
 					{
@@ -2647,7 +2686,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 70,
+					"buffer": 71,
 					"file": "/tmp/subl stdin T1kjVu.txt",
 					"settings":
 					{
@@ -2673,7 +2712,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 71,
+					"buffer": 72,
 					"file": "src/common/plugins/hooks.core/transactions.js",
 					"settings":
 					{
@@ -2695,6 +2734,33 @@
 						},
 						"translation.x": 0.0,
 						"translation.y": 15.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 73,
+					"file": "lib/node/index.js",
+					"settings":
+					{
+						"buffer_size": 191,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								150,
+								150
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
