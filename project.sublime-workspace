@@ -442,7 +442,7 @@
 			"file": "src/common/plugins/hooks.core/index.js",
 			"settings":
 			{
-				"buffer_size": 2976,
+				"buffer_size": 2969,
 				"line_ending": "Unix"
 			}
 		},
@@ -613,7 +613,7 @@
 			"file": "lib/node/index.js",
 			"settings":
 			{
-				"buffer_size": 275,
+				"buffer_size": 191,
 				"line_ending": "Unix"
 			}
 		},
@@ -622,6 +622,14 @@
 			"settings":
 			{
 				"buffer_size": 80,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/tmp/subl stdin 0xoezW.txt",
+			"settings":
+			{
+				"buffer_size": 0,
 				"line_ending": "Unix"
 			}
 		}
@@ -820,7 +828,7 @@
 	"groups":
 	[
 		{
-			"selected": 75,
+			"selected": 53,
 			"sheets":
 			[
 				{
@@ -2230,15 +2238,15 @@
 					"file": "src/common/plugins/hooks.core/index.js",
 					"settings":
 					{
-						"buffer_size": 2976,
+						"buffer_size": 2969,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								501,
-								501
+								330,
+								330
 							]
 						],
 						"settings":
@@ -2247,7 +2255,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 300.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -2785,7 +2793,7 @@
 					"file": "lib/node/index.js",
 					"settings":
 					{
-						"buffer_size": 275,
+						"buffer_size": 191,
 						"regions":
 						{
 						},
@@ -2826,6 +2834,32 @@
 						"settings":
 						{
 							"syntax": "Packages/Makefile/Makefile.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 76,
+					"file": "/tmp/subl stdin 0xoezW.txt",
+					"settings":
+					{
+						"buffer_size": 0,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
