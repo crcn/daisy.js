@@ -4,7 +4,7 @@ clean:
 	rm -rf lib
 
 node:
-	mesh make node
+	mesh merge node
 
 web:
-	mesh make web
+	mesh merge web
