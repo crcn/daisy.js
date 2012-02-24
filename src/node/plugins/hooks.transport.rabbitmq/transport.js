@@ -32,6 +32,8 @@ var Transport = Structr({
 	
 	'connect': function() {
 
+		logger.info(sprintf("Connect to rabbitmq host %s", this.host));
+
 		var connection = this.connection = amqp.createConnection({ host: this.host }),
 		self = this;
 		
