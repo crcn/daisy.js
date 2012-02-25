@@ -428,7 +428,6 @@ var TransportWrapper = Structr({
 
 				// if(hasPrivate || (r.routeExists({ path: channelExpr }) && (!hasListener || director.passive))) return;
 
-				// console.log(hasListener+" "+director.passive)
 
 				logger.verbose(sprintf('hooking %s %s', type, path));
 				

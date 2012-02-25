@@ -498,7 +498,7 @@
 			"file": "src/common/plugins/hooks.core/transports.js",
 			"settings":
 			{
-				"buffer_size": 11090,
+				"buffer_size": 11037,
 				"line_ending": "Unix"
 			}
 		},
@@ -661,7 +661,23 @@
 			"file": "src/common/plugins/hooks.core/utils.js",
 			"settings":
 			{
-				"buffer_size": 547,
+				"buffer_size": 542,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/tmp/subl stdin ICDcxd.txt",
+			"settings":
+			{
+				"buffer_size": 0,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/tmp/subl stdin tgVUrp.txt",
+			"settings":
+			{
+				"buffer_size": 0,
 				"line_ending": "Unix"
 			}
 		},
@@ -738,6 +754,8 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"console.l",
+			"path.path",
 			".error",
 			"console.err",
 			".message",
@@ -863,9 +881,7 @@
 			"_onResponse",
 			"error:",
 			"onResp",
-			"_onResponse",
-			"onResp",
-			"mw.resp"
+			"_onResponse"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -2301,8 +2317,8 @@
 						"selection":
 						[
 							[
-								2518,
-								2520
+								416,
+								416
 							]
 						],
 						"settings":
@@ -2311,7 +2327,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 1697.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -2477,15 +2493,15 @@
 					"file": "src/common/plugins/hooks.core/transports.js",
 					"settings":
 					{
-						"buffer_size": 11090,
+						"buffer_size": 11037,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								468,
-								468
+								8233,
+								8233
 							]
 						],
 						"settings":
@@ -2494,7 +2510,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 6001.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -2907,8 +2923,8 @@
 						"selection":
 						[
 							[
-								3341,
-								3341
+								353,
+								353
 							]
 						],
 						"settings":
@@ -3006,15 +3022,15 @@
 					"file": "src/common/plugins/hooks.core/utils.js",
 					"settings":
 					{
-						"buffer_size": 547,
+						"buffer_size": 542,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								414,
-								414
+								259,
+								259
 							]
 						],
 						"settings":
@@ -3030,6 +3046,58 @@
 				},
 				{
 					"buffer": 81,
+					"file": "/tmp/subl stdin ICDcxd.txt",
+					"settings":
+					{
+						"buffer_size": 0,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 82,
+					"file": "/tmp/subl stdin tgVUrp.txt",
+					"settings":
+					{
+						"buffer_size": 0,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 83,
 					"file": "src/node/plugins/hooks.transport.rabbitmq/utils.js",
 					"settings":
 					{
@@ -3056,7 +3124,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 82,
+					"buffer": 84,
 					"file": "src/node/server/index.js",
 					"settings":
 					{
@@ -3083,7 +3151,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 83,
+					"buffer": 85,
 					"file": "src/web/plugins/hooks.transport.jsonp/transport.js",
 					"settings":
 					{
