@@ -5,7 +5,7 @@
   "author": "Craig Condon",
   "repository": {
     "type": "git",
-    "url": "http://github.com/crcn/daisy.git"
+    "url": "http://github.com/crcn/daisy.js.git"
   },
   "directories": {
     "mesh-src": "./src"
