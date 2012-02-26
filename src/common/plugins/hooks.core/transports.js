@@ -20,7 +20,7 @@ var Request = {
 
 
 function cleanPath(path) {
-	
+
 	return path.replace(/^\/+|\/+$/,'');
 
 }
@@ -379,7 +379,7 @@ var TransportWrapper = Structr({
 
 		var path;
 
-		if(typeof path == 'object') {
+		if(typeof route == 'object') {
 			types = [route.type];
 			path = route.path;
 		} else {
