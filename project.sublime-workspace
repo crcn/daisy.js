@@ -538,7 +538,7 @@
 			"file": "lib/node/plugins/hooks.core/transports.js",
 			"settings":
 			{
-				"buffer_size": 11090,
+				"buffer_size": 11037,
 				"line_ending": "Unix"
 			}
 		},
@@ -634,6 +634,14 @@
 			}
 		},
 		{
+			"file": "/tmp/subl stdin qutJ9c.txt",
+			"settings":
+			{
+				"buffer_size": 0,
+				"line_ending": "Unix"
+			}
+		},
+		{
 			"file": "lib/node/index.js",
 			"settings":
 			{
@@ -662,6 +670,14 @@
 			"settings":
 			{
 				"buffer_size": 542,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/tmp/subl stdin hpQ98V.txt",
+			"settings":
+			{
+				"buffer_size": 0,
 				"line_ending": "Unix"
 			}
 		},
@@ -702,6 +718,22 @@
 			"settings":
 			{
 				"buffer_size": 2045,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "supervisord.conf",
+			"settings":
+			{
+				"buffer_size": 70,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "package.json",
+			"settings":
+			{
+				"buffer_size": 774,
 				"line_ending": "Unix"
 			}
 		}
@@ -754,6 +786,11 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"_onRequest",
+			"onMessage",
+			"\n					console.log(href)",
+			"cleanPath",
+			"replace",
 			"console.l",
 			"path.path",
 			".error",
@@ -876,12 +913,7 @@
 			"Response.res",
 			"_transactions",
 			"does not",
-			"respond",
-			"direct",
-			"_onResponse",
-			"error:",
-			"onResp",
-			"_onResponse"
+			"respond"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -900,7 +932,7 @@
 	"groups":
 	[
 		{
-			"selected": 80,
+			"selected": 60,
 			"sheets":
 			[
 				{
@@ -2317,8 +2349,8 @@
 						"selection":
 						[
 							[
-								416,
-								416
+								522,
+								524
 							]
 						],
 						"settings":
@@ -2500,8 +2532,8 @@
 						"selection":
 						[
 							[
-								8233,
-								8233
+								4081,
+								4081
 							]
 						],
 						"settings":
@@ -2510,7 +2542,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 6001.0,
+						"translation.y": 2731.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -2625,15 +2657,15 @@
 					"file": "lib/node/plugins/hooks.core/transports.js",
 					"settings":
 					{
-						"buffer_size": 11090,
+						"buffer_size": 11037,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								8548,
-								8548
+								0,
+								0
 							]
 						],
 						"settings":
@@ -2923,8 +2955,8 @@
 						"selection":
 						[
 							[
-								353,
-								353
+								362,
+								362
 							]
 						],
 						"settings":
@@ -2940,6 +2972,32 @@
 				},
 				{
 					"buffer": 77,
+					"file": "/tmp/subl stdin qutJ9c.txt",
+					"settings":
+					{
+						"buffer_size": 0,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 78,
 					"file": "lib/node/index.js",
 					"settings":
 					{
@@ -2966,7 +3024,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 78,
+					"buffer": 79,
 					"file": "makefile",
 					"settings":
 					{
@@ -2992,7 +3050,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 79,
+					"buffer": 80,
 					"file": "/tmp/subl stdin 0xoezW.txt",
 					"settings":
 					{
@@ -3018,7 +3076,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 80,
+					"buffer": 81,
 					"file": "src/common/plugins/hooks.core/utils.js",
 					"settings":
 					{
@@ -3029,8 +3087,8 @@
 						"selection":
 						[
 							[
-								259,
-								259
+								113,
+								113
 							]
 						],
 						"settings":
@@ -3045,34 +3103,8 @@
 					"type": "text"
 				},
 				{
-					"buffer": 81,
-					"file": "/tmp/subl stdin ICDcxd.txt",
-					"settings":
-					{
-						"buffer_size": 0,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Text/Plain text.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
 					"buffer": 82,
-					"file": "/tmp/subl stdin tgVUrp.txt",
+					"file": "/tmp/subl stdin hpQ98V.txt",
 					"settings":
 					{
 						"buffer_size": 0,
@@ -3098,6 +3130,58 @@
 				},
 				{
 					"buffer": 83,
+					"file": "/tmp/subl stdin ICDcxd.txt",
+					"settings":
+					{
+						"buffer_size": 0,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 84,
+					"file": "/tmp/subl stdin tgVUrp.txt",
+					"settings":
+					{
+						"buffer_size": 0,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 85,
 					"file": "src/node/plugins/hooks.transport.rabbitmq/utils.js",
 					"settings":
 					{
@@ -3124,7 +3208,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 84,
+					"buffer": 86,
 					"file": "src/node/server/index.js",
 					"settings":
 					{
@@ -3151,7 +3235,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 85,
+					"buffer": 87,
 					"file": "src/web/plugins/hooks.transport.jsonp/transport.js",
 					"settings":
 					{
@@ -3162,8 +3246,8 @@
 						"selection":
 						[
 							[
-								898,
-								898
+								188,
+								189
 							]
 						],
 						"settings":
@@ -3172,7 +3256,61 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 285.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 88,
+					"file": "supervisord.conf",
+					"settings":
+					{
+						"buffer_size": 70,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								68,
+								55
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 89,
+					"file": "package.json",
+					"settings":
+					{
+						"buffer_size": 774,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								679,
+								679
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JSON.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
