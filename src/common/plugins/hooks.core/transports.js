@@ -482,7 +482,7 @@ var TransportWrapper = Structr({
 				tags: msg.filter, //check this tomorrow Friday, February 03, 2012
 				payload: {
 					data: result || true,
-					query: _.defaults(msg.query, self._collection._stickyData),
+					query: _.defaults(msg.query || {}, self._collection._stickyData || {}),
 					headers: msg.headers
 				},
 				hasNext: mw.hasNext,
