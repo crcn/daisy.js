@@ -71,7 +71,7 @@ var Transport = Structr({
 
 			this.rpc.request({
 				url: url,
-				data: { ran: Math.random(), json: JSON.stringify(message), httpMethod: headers },
+				data: { json: JSON.stringify(message) },
 				method: "GET",
 				type: 'json'
 			}, onResponse, onError);
