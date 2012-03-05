@@ -8,7 +8,8 @@
         "url": "http://github.com/crcn/daisy.js.git"
     },
     "directories": {
-        "src": "./src"
+        "src": "./src",
+        "lib": "./lib"
     },
     "dependencies": {
         "crema": "*",
