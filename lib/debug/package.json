@@ -8,7 +8,7 @@
     "url": "http://github.com/crcn/daisy.js.git"
   },
   "directories": {
-    "src": "./src"
+    "mesh-src": "./src"
   },
   "dependencies": {
     "crema": "*",
@@ -27,6 +27,5 @@
   "main": "./lib/node/index.js",
   "bin": {
     "daisy": "./bin/server"
-  },
-  "mesh": true
+  }
 }
