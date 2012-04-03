@@ -1,0 +1,9 @@
+{
+	"make": {
+		"web" : {
+			"entry": "./lib/web/index.js",
+			"output": "./daisy.web.js",
+			"task": "sardines"
+		}
+	}
+}

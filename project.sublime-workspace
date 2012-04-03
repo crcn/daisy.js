@@ -378,7 +378,7 @@
 			"file": "node_modules/amqp/amqp.js",
 			"settings":
 			{
-				"buffer_size": 51936,
+				"buffer_size": 52002,
 				"line_ending": "Unix"
 			}
 		},
@@ -427,6 +427,17 @@
 			"settings":
 			{
 				"buffer_size": 0,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "var utils = require('./utils'),\nTransports = require('./transports'),\nvine = require('vine'),\nlogger = require('winston').loggers.get('daisy'),\nsprintf = require('sprintf').sprintf;\n\n	\nexports.plugin = function(router, params) {\n\n\n\n\n	//target hooks\n	var target = params.target || params.transport || {},\n	remoteName = params.name,\n	transports = new Transports(router, params.scope, remoteName),\n	transportTypes = {};\n\n\n	if(!remoteName) throw new Error('A name must be provided for your app');\n\n\n	\n	var haba = this;\n\n\n	var self = {\n\n		/**\n		 */\n\n		init: function() {\n				\n			\n			haba.plugins('hooks.transport.*').forEach(function(plugin) {\n\n\n				self.addHookTransport(plugin.transport);\n\n			});\n		},\n\n		/**\n		 */\n\n		addListener: function(listener) {\n			\n			if(!listener.route.tags.hook) return;\n\n\n			transports.publishHooks([{\n				path: listener.route.path.value,\n				type: listener.route.type\n			}]);\n				\n		},\n\n		/**\n		 */\n\n		addHookData: function(stickyData) {\n\n			logger.verbose('adding sticky data to daisy');\n			\n			transports.addStickyData(stickyData);\n\n		},\n\n		/**\n		 */\n\n		connectHook: function(config) {\n\n			logger.verbose(sprintf('connecting hook %s', config.type));\n\n			\n			transports.add(transportTypes[config.type].connect(config));\n\n		},\n\n		/**\n		 */\n\n		addHookTransport: function(transport) {\n\n			logger.verbose(sprintf('adding available hook transport %s', transport.name));\n\n			transportTypes[transport.name] = transport;\n		}\n	};\n\n	router.on({\n\n		/**\n		 * connect before starting up this app\n		 */\n\n		'pull load/*': function(req, res, mw) {\n			logger.verbose('loading daisy');\n\n\n			for(var name in target) {\n				\n				var transport = transportTypes[name];\n\n\n				if(!transport) continue;\n\n				//can be multiple hooks to a particular transport.\n				var transportConfigs = target[transport.name];\n				\n				if(!(transportConfigs instanceof Array)) transportConfigs = [transportConfigs];\n				\n				var running = transportConfigs.length;\n\n				if(!running) return mw.next();\n				\n				transportConfigs.forEach(function(cfg)\n				{\n					\n					//set the queue name\n					cfg.name = remoteName;\n					\n					transports.add(transport.connect(cfg)).once('connect', function() {\n						if(!(--running)) {\n							logger.verbose('loaded daisy');\n							mw.next();\n						}\n					})\n				})\n			}\n		},\n\n\n		/**\n		 */\n\n		'push -private new/listener': self.addListener,\n\n		/**\n		 */\n		\n		'pull -hook -ttl=3600 -method=GET hooks': function(req, res) {\n\n			//TODO - get perm level of given session\n			return vine.result(utils.siftPaths(router)).end(res);\n		},\n		\n		/**\n		 * data that's passed to hooks on every request, such as access tokens\n		 */\n		\n		'push hooks/sticky/data OR hooks/data': self.addHookData,\n		\n		/**\n		 */\n		\n		'push -private hooks/connect': self.connectHook\n\n\n		/**\n		 * end any piped data - it isn't supported yet\n		 */\n\n		/*'push OR pull OR collect -hooked /**': function(req, res, mw) {\n\n			this.message.writer.end();\n\n			this.next();\n		}*/\n	});\n\n	return self;\n}",
+			"file": "src/common/index.js",
+			"file_size": 2970,
+			"file_write_time": 1332388965000000,
+			"settings":
+			{
+				"buffer_size": 2970,
 				"line_ending": "Unix"
 			}
 		},
@@ -503,7 +514,10 @@
 			}
 		},
 		{
+			"contents": "var Structr = require('structr'),\nutils = require('./utils'),\nTransactions = require('./transactions'),\nvine = require('vine'),\n_ = require('underscore'),\nbeanpoll = require('beanpoll'),\ncrema = require('crema'),\nlogger = require('winston').loggers.get('daisy'),\nsprintf = require('sprintf').sprintf,\nEventEmitter = require('events').EventEmitter;\n\nvar Response = {\n	next: 'next',\n	response: 'response'\n}\n\nvar Request = {\n	body: 'body'\n}\n\n\nfunction cleanPath(path) {\n\n	return path.replace(/^\\/+|\\/+$/,'');\n\n}\n\n \nvar TransportWrapper = Structr({\n	\n	/**\n	 */\n	\n	'__construct': function(collection, transport, name) {\n\n		this._em = new EventEmitter();\n		this._em.setMaxListeners(0);\n\n		this.name = name;\n\n		//the collection that holds all the transports\n		this._collection = collection;\n\n		//the scope of queues to bind to\n		this.scope = collection.scope || [];\n\n		\n		//the router that handles all the path requests\n		this._router = collection._router;\n		\n		//the transport which broadcasts routes over the network\n		this._transport = transport;\n		\n		//paths we've already hooked into\n		this._hooked = {};\n\n		this._remoteRouters = {};\n\n		\n		//any paths which should be ignored. This is a dirty method of making sure requests\n		//don't get re-broadcasted out to the same transport\n		this._ignore = {};\n		\n		//controls transactions between two servers\n		this._transactions = new Transactions(transport);\n\n\n		//kill transactions after N seconds\n		this._killTimeout = 1000 * 20;\n		\n		//called back when the app first starts up, and when new apps are introduced\n		transport.onHandshake = this.getMethod('onHandshake');\n		\n		//called when an app on the network is sending a request that *this* app can handle\n		transport.onMessage = this.getMethod('onMessage');\n		\n		//what happens when a call is made to a path that doens't exist\n		transport.onNoRoute = this.getMethod('onNoRoute');\n\n		//\n		transport.onConnected = this.getMethod('onConnected');\n\n		transport.onDisconnected = this.getMethod('onDisconnected');\n\n		var self = this;\n\n		this._router.on('push -hook announce/:appName', function() {\n\n			this.from.request(name + '/ready').header('queue', null).push(undefined);\n		});\n\n		this._router.on('pull ' + name + '/ready', function(req, res) {\n			res.end();\n		});\n\n	},\n\n	/**\n	 */\n\n	'on': function(type, callback) {\n		this._em.on(type, callback);\n	},\n\n	/**\n	 */\n\n	'once': function(type, callback) {\n		this._em.once(type, callback);\n	},\n	\n	/**\n	 * publishes *public* hooks to the network. Any app can call these.\n	 */\n	\n	'publishHooks': function(hooks) {\n\n		var self = this;\n		\n		hooks.forEach(function(hook) {\n\n\n			self._hooked[cleanPath(utils.generalizeParams(hook.path))]  = 1;\n\n			logger.verbose(sprintf('publish hook %s', hook.path));\n		});\n		\n		this._transport.publishHooks(hooks);\n	},\n	\n	/**\n	 * When new apps come in, register their hooks\n	 */\n	\n	'onHandshake': function(handshake) {                           \n		var self = this;\n\n\n\n\n		if(handshake.hooks instanceof Array) {\n\n			handshake.hooks.forEach(function(hook) {\n				self._hook(hook);\n			});\n\n		} else {\n\n			for(var route in handshake.hooks) {\n\n				var info = handshake.hooks[route];\n\n				self._hook(route, info.t, info.a);	\n					\n			}\n\n		}\n	},\n\n	/**\n	 */\n	'onDisconnected': function() {\n	},\n\n	/**\n	 */\n\n	'onConnected': function() {\n		//TODO - push reconnect\n		if(this._announced) return;\n		this._announced = true;\n\n\n		this._router.request('announce/' + this.name).header('queue', null).push(undefined);\n		this._em.emit('connect');\n	},\n	\n	/**\n	 * handle any message from a server\n	 */\n	\n	'onMessage': function(data, headers, from) {\n\n		if(headers.type in Response) {\n\n			this._onResponse(data, headers, from);\n\n		} else {\n\n			this._ignore[headers.path] = 1;\n			this._onRequest(data, headers, from);\n			delete this._ignore[headers.path];\n\n		}\n	},\n	\n	/**\n	 */\n	\n	'onNoRoute': function(path) {      \n	                             \n\n		(this._transactions.live(path) || []).forEach(function(transaction) {\n\n			transaction.emit('response', { error: 'Route ' + path + ' does not exist' });\n\n		});\n	},\n	\n	/**\n	 */\n	\n	'_onRequest': function(payload, headers, from)\n	{           \n		var self = this,\n		fromRouter = this._from(from),\n		responded = false,\n		respond = function(response, type) {\n\n			//this WILL happen on items such as push routes\n			if(responded) return;\n			responded = true;\n\n			self._transport.direct(from.replyTo, response, { transactionId: headers.transactionId, type: type } );\n		};\n\n\n		logger.verbose(sprintf('hooked %s %s', headers.type.toUpperCase(), headers.path));\n\n\n		var req = this._router.request(headers.path).\n\n		//type of route: push, pull, collect, etc.\n		type(headers.type).\n\n		//point back to the remote router\n		from(fromRouter).\n\n		headers(payload.headers).\n\n		query(payload.query).\n\n		//only hooked items can be processed\n		tag('hook', true).\n\n		//the ack callback\n		response(function(err, data) {\n\n			//some errors CANNOT be serialized for some reason\n			respond({ error: err ? { message: err.message, stack: err.stack } : null, data: data ? data : null }, Response.response);\n\n		});\n\n\n		//this happens with services such as rabbitmq where you might\n		//have a CLUSTER of applications which use the same queues\n		if(from.isSelf) {\n\n			respond({ error: new Error('cannot handle self') }, Response.response);\n			return;\n		}\n\n		if(!req.hasListeners()) {\n			\n			logger.verbose(sprintf('path %s does not exist', headers.path));\n\n			respond({ error: new Error('route does not exist') }, Response.response);\n			return;\n		}\n\n\n		if(headers.hasNext) {\n\n			req.next(function() {\n\n				respond(null, Request.next);\n\n			})\n		}\n\n		req.dispatch().end(payload.data);\n\n		\n	},        \n	\n	\n	/**\n	 */\n	\n	'_from': function(from) {\n	                   	\n		var queue = from.name,\n		replyTo = from.replyTo;\n		              \n		var transactions = this._transactions, self = this;\n\n		if(this._remoteRouters[replyTo]) return this._remoteRouters[replyTo];\n\n\n\n		var router = /*this._remoteRouters[replyTo] =*/ beanpoll.router();\n		router.use(this._router.using());\n		router.name = replyTo;\n\n\n\n		Object.keys(this._hooked).forEach(function(path) {\n\n			Object.keys(router.directors).forEach(function(type) {\n\n				router.on(path, { type: type }, function(req, res, mw) {\n							\n					var mw = this,\n					msg = mw.request;\n\n					self._dispatch(mw, type, crema.stringifySegments(mw.current.path.segments, mw.current.params), replyTo);\n				});\n\n			})\n		});\n\n		return router;\n	},\n\n\n	\n	/**\n	 */\n	\n	'_onResponse': function(data, headers, from) {\n\n		var trans = this._transaction(headers);\n\n		if(!trans) return;\n		\n		trans.emit(headers.type, data);      \n	},\n\n	\n	/**\n	 */\n	 \n	'_transaction': function(headers) {\n\n		var trans = this._transactions.live(headers.transactionId);\n\n\n		//this WILL happen when fanouts are acknowledged, such as push.\n		if(!trans) return null;//console.error('Transaction %s does not exist', headers.transactionId);\n\n		return trans;\n		\n	},\n\n	/**\n	 */\n\n	'_getQueue': function(path) {\n\n		if(!this.scope.length) return null;\n\n		var queues = this._hooked[path] || [];\n\n\n		return _.intersection(queues, this.scope);\n	},\n	\n	/**\n	 * hooks a *remote* route to the app\n	 */\n	\n	'_hook': function(route, types, queues) {\n\n		var path;\n\n		if(typeof route == 'object') {\n			types = [route.type];\n			path = route.path;\n		} else {\n			path = route;\n		}\n\n		if(!types) types = [];\n		if(!queues) queues = [];\n\n\n		path = cleanPath(path);\n\n		\n		//router\n		var r        = this._router,\n\n		//routes to ignore - incomming remote calls are ignored\n		ignore       = this._ignore,\n\n		//transport to use - JSONP? AMQP?\n		transport    = this._transport,\n\n		//transactions ~ push/pull \n		transactions = this._transactions,\n\n		self = this;\n\n		this._hooked[path] = queues || [];\n		\n		try {\n\n			var pathExpr = crema.parsePath(path);\n\n\n			types.forEach(function(type) {\n\n				var director = r.director(type),\n				req = r.request(path).type(type),\n				hasListener = req.exists(),\n				hasPrivate = req.tag('private', true).exists();\n\n\n				if(hasPrivate || (hasListener && !director.passive)) return;\n\n				// if(hasPrivate || (r.routeExists({ path: channelExpr }) && (!hasListener || director.passive))) return;\n\n\n				logger.verbose(sprintf('hooking %s %s', type, path));\n				\n				r.on(path, { tags: { hooked: '*', unfilterable: '*', stream: true, priority: -999999 }, type: type }, function(req, res) {\n\n					var mw = this, \n					msg = mw.request,\n					params = msg.params;\n\n					path = crema.stringifySegments(mw.current.path.segments, mw.current.params);\n\n					if(msg.from != self._router || msg.headers.ignoreHook) {\n						throw new Error('cannot proxy \"' + path + '\" request');\n					}\n\n					self._dispatch(mw, type, path, msg.headers.queue !== undefined ? msg.headers.queue : self._getQueue(path));\n				});\n\n			});\n\n		} catch(e) {\n			logger.error(e, { stack: e.stack });\n		}\n\n\n		\n\n	},\n\n\n	'_dispatch': function(mw, type, path, queue) {\n		\n		var msg = mw.request, self = this;\n\n\n		logger.verbose(sprintf('remote %s %s', type.toUpperCase(), path))\n\n\n		function respond(err, result) {\n\n			if(mw.response.sentHeaders) return;\n\n			if(err) logger.error(err, { stack: err.stack });\n\n			if(err) return mw.response.error(new Error(err.message));\n\n			mw.response.end(result);\n\n		}\n\n		function onData(err, result) {\n\n			if(err) return respond(err);\n\n\n			var transaction = self._transactions.\n			create(path).\n			prepare(type, {\n				queue: queue,\n				tags: msg.filter, //check this tomorrow Friday, February 03, 2012\n				payload: {\n					data: result || true,\n					query: _.defaults(msg.query || {}, self._collection._stickyData || {}),\n					headers: msg.headers\n				},\n				hasNext: mw.hasNext,\n				next: function() {\n					mw.next()\n				}\n			}).\n			register({ timeout: self._killTimeout });\n\n\n			transaction.onEnd('response', function(response) {\n\n				respond(response.error, response.data);\n\n			});		\n\n			var success = transaction.send();\n\n\n			//probably out of scope\n			if(!success) {\n				transaction.dispose();\n				respond(new Error('Could not send '+path+'. Most likely a target was not set.'));\n			}\n		}\n\n		//dump incomming data - we CANNOT pipe it over the network\n		//since some transports don't support it, such as rabbitmq. With rabbit,\n		//piping data will be round-robbined around queues. \n		//msg.dump(onData);\n\n		onData();\n	}\n});\n\n\nmodule.exports = Structr({\n	\n	/**\n	 */\n	\n	'__construct': function(router, scope, remoteName) {\n\n		this.remoteName = remoteName;\n		this._router = router;\n		this._transports = [];\n		this._stickyData = {}\n		this.scope = scope;\n\n	},\n	\n	/**\n	 */\n	\n	'addStickyData': function(data) {\n\n		Structr.copy(data || {}, this._stickyData, true);\n\n	},\n	\n	/**\n	 */\n	\n	'publishHooks': function(hooks) {\n\n		this._transports.forEach(function(transport) {\n\n			transport.publishHooks(hooks);\n\n		});\n	},\n	\n	/**\n	 */\n	\n	'add': function(transport) {\n\n		var wrapper = new TransportWrapper(this, transport, this.remoteName);\n		\n		this._transports.push(wrapper);\n\n		wrapper.publishHooks(utils.siftPaths(this._router));\n\n		return wrapper;\n	}\n});",
 			"file": "src/common/plugins/hooks.core/transports.js",
+			"file_size": 10979,
+			"file_write_time": 1330409926000000,
 			"settings":
 			{
 				"buffer_size": 10979,
@@ -586,7 +600,7 @@
 			"file": ".cupboard",
 			"settings":
 			{
-				"buffer_size": 239,
+				"buffer_size": 245,
 				"line_ending": "Unix"
 			}
 		},
@@ -602,15 +616,15 @@
 			"file": "lib/node/plugins/hooks.transport.rabbitmq/transport.js",
 			"settings":
 			{
-				"buffer_size": 6114,
+				"buffer_size": 6107,
 				"line_ending": "Unix"
 			}
 		},
 		{
 			"contents": "var Structr = require('structr'),\nEventEmitter = require('events').EventEmitter;\n\nmodule.exports = Structr({\n	\n	/**\n	 */\n	\n	'__construct': function() {\n		\n		this._em = new EventEmitter();\n		this.collection = [];\n\n	},\n\n	/**\n	 */\n\n	'on': function(type, callback) {\n		this._em.on(type, callback);\n	},\n	\n	/**\n	 */\n	\n	'add': function(items) {\n		if(!(items instanceof Array)) items = [items];\n		\n		var self = this;\n		\n		items.forEach(function(item) {\n\n			self.collection.push(item);\n\n			// if(self._dump) self._dump(item);\n\n		});\n\n		self._em.emit('hooks', items);\n	},\n	\n	/**\n	 * dumps the queue\n	 */\n	\n	'dump': function(callback) {\n		\n		// this._dump = callback;\n		\n		this.collection.forEach(callback);\n	},\n\n	/**\n	 */\n\n	'hooks': function() {\n		return this.collection;\n	}\n	\n});",
 			"file": "lib/node/plugins/hooks.transport.rabbitmq/bucket.js",
-			"file_size": 770,
-			"file_write_time": 1329636903000000,
+			"file_size": 801,
+			"file_write_time": 1333041952000000,
 			"settings":
 			{
 				"buffer_size": 770,
@@ -685,7 +699,7 @@
 			"file": "makefile",
 			"settings":
 			{
-				"buffer_size": 80,
+				"buffer_size": 0,
 				"line_ending": "Unix"
 			}
 		},
@@ -749,7 +763,15 @@
 			"file": "src/web/plugins/hooks.transport.jsonp/transport.js",
 			"settings":
 			{
-				"buffer_size": 2004,
+				"buffer_size": 2101,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/tmp/subl stdin kFRYz7.txt",
+			"settings":
+			{
+				"buffer_size": 0,
 				"line_ending": "Unix"
 			}
 		},
@@ -773,7 +795,47 @@
 			"file": "package.json",
 			"settings":
 			{
-				"buffer_size": 787,
+				"buffer_size": 838,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/tmp/subl stdin QcIQR9.txt",
+			"settings":
+			{
+				"buffer_size": 0,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/tmp/subl stdin TGoOat.txt",
+			"settings":
+			{
+				"buffer_size": 0,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/tmp/subl stdin 8wRPek.txt",
+			"settings":
+			{
+				"buffer_size": 0,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/tmp/subl stdin EjdQhM.txt",
+			"settings":
+			{
+				"buffer_size": 0,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/tmp/subl stdin pslA8P.txt",
+			"settings":
+			{
+				"buffer_size": 0,
 				"line_ending": "Unix"
 			}
 		},
@@ -996,7 +1058,7 @@
 	"groups":
 	[
 		{
-			"selected": 94,
+			"selected": 70,
 			"sheets":
 			[
 				{
@@ -2191,15 +2253,15 @@
 					"file": "node_modules/amqp/amqp.js",
 					"settings":
 					{
-						"buffer_size": 51936,
+						"buffer_size": 52002,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								17290,
-								17290
+								0,
+								0
 							]
 						],
 						"settings":
@@ -2379,15 +2441,15 @@
 					"file": "src/common/index.js",
 					"settings":
 					{
-						"buffer_size": 191,
+						"buffer_size": 2970,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								191,
-								191
+								230,
+								230
 							]
 						],
 						"settings":
@@ -2403,6 +2465,32 @@
 				},
 				{
 					"buffer": 53,
+					"file": "src/common/index.js",
+					"settings":
+					{
+						"buffer_size": 191,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								191,
+								191
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 54,
 					"file": "/tmp/subl stdin onq5NC.txt",
 					"settings":
 					{
@@ -2428,7 +2516,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 54,
+					"buffer": 55,
 					"file": "src/common/plugins/hooks.core/index.js",
 					"settings":
 					{
@@ -2449,13 +2537,13 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 2966.0,
+						"translation.y": 1245.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
-					"buffer": 55,
+					"buffer": 56,
 					"file": "/tmp/subl stdin xTnlkv.txt",
 					"settings":
 					{
@@ -2481,7 +2569,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 56,
+					"buffer": 57,
 					"file": "/tmp/subl stdin O1H5yi.txt",
 					"settings":
 					{
@@ -2507,7 +2595,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 57,
+					"buffer": 58,
 					"file": "/tmp/subl stdin xaoya6.txt",
 					"settings":
 					{
@@ -2533,7 +2621,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 58,
+					"buffer": 59,
 					"file": "/tmp/subl stdin U6Tlxz.txt",
 					"settings":
 					{
@@ -2559,7 +2647,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 59,
+					"buffer": 60,
 					"file": "/tmp/subl stdin CYuVy4.txt",
 					"settings":
 					{
@@ -2585,7 +2673,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 60,
+					"buffer": 61,
 					"file": "/tmp/subl stdin fs1vfW.txt",
 					"settings":
 					{
@@ -2611,7 +2699,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 61,
+					"buffer": 62,
 					"file": "src/common/plugins/hooks.core/transports.js",
 					"settings":
 					{
@@ -2632,13 +2720,13 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 6811.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
-					"buffer": 62,
+					"buffer": 63,
 					"file": "/tmp/subl stdin QRT9He.txt",
 					"settings":
 					{
@@ -2664,7 +2752,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 63,
+					"buffer": 64,
 					"file": "/tmp/subl stdin DHZOaG.txt",
 					"settings":
 					{
@@ -2690,7 +2778,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 64,
+					"buffer": 65,
 					"file": "/tmp/subl stdin GORAO3.txt",
 					"settings":
 					{
@@ -2716,7 +2804,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 65,
+					"buffer": 66,
 					"file": "/tmp/subl stdin wU3iJn.txt",
 					"settings":
 					{
@@ -2742,7 +2830,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 66,
+					"buffer": 67,
 					"file": "/tmp/subl stdin miQc2O.txt",
 					"settings":
 					{
@@ -2768,7 +2856,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 67,
+					"buffer": 68,
 					"file": "/tmp/subl stdin 7TstHG.txt",
 					"settings":
 					{
@@ -2794,7 +2882,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 68,
+					"buffer": 69,
 					"file": "lib/node/server/index.js",
 					"settings":
 					{
@@ -2821,7 +2909,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 69,
+					"buffer": 70,
 					"file": "lib/node/plugins/hooks.core/transports.js",
 					"settings":
 					{
@@ -2848,7 +2936,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 70,
+					"buffer": 71,
 					"file": "/tmp/subl stdin zrWsk9.txt",
 					"settings":
 					{
@@ -2874,19 +2962,19 @@
 					"type": "text"
 				},
 				{
-					"buffer": 71,
+					"buffer": 72,
 					"file": ".cupboard",
 					"settings":
 					{
-						"buffer_size": 239,
+						"buffer_size": 245,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								25,
-								25
+								36,
+								36
 							]
 						],
 						"settings":
@@ -2900,7 +2988,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 72,
+					"buffer": 73,
 					"file": "/tmp/subl stdin 3Po7GT.txt",
 					"settings":
 					{
@@ -2926,19 +3014,19 @@
 					"type": "text"
 				},
 				{
-					"buffer": 73,
+					"buffer": 74,
 					"file": "lib/node/plugins/hooks.transport.rabbitmq/transport.js",
 					"settings":
 					{
-						"buffer_size": 6114,
+						"buffer_size": 6107,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								4935,
+								4939
 							]
 						],
 						"settings":
@@ -2946,14 +3034,14 @@
 							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
 							"translate_tabs_to_spaces": false
 						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.x": 2.0,
+						"translation.y": 2923.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
-					"buffer": 74,
+					"buffer": 75,
 					"file": "lib/node/plugins/hooks.transport.rabbitmq/bucket.js",
 					"settings":
 					{
@@ -2980,7 +3068,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 75,
+					"buffer": 76,
 					"file": "src/node/plugins/hooks.transport.rabbitmq/transport.js",
 					"settings":
 					{
@@ -2991,8 +3079,8 @@
 						"selection":
 						[
 							[
-								4863,
-								4868
+								171,
+								173
 							]
 						],
 						"settings":
@@ -3007,7 +3095,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 76,
+					"buffer": 77,
 					"file": "/tmp/subl stdin 1L4tSX.txt",
 					"settings":
 					{
@@ -3033,7 +3121,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 77,
+					"buffer": 78,
 					"file": "/tmp/subl stdin hbAONl.txt",
 					"settings":
 					{
@@ -3059,7 +3147,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 78,
+					"buffer": 79,
 					"file": "src/node/plugins/hooks.transport.rabbitmq/bucket.js",
 					"settings":
 					{
@@ -3086,7 +3174,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 79,
+					"buffer": 80,
 					"file": "/tmp/subl stdin T1kjVu.txt",
 					"settings":
 					{
@@ -3112,7 +3200,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 80,
+					"buffer": 81,
 					"file": "src/common/plugins/hooks.core/transactions.js",
 					"settings":
 					{
@@ -3139,7 +3227,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 81,
+					"buffer": 82,
 					"file": "/tmp/subl stdin qutJ9c.txt",
 					"settings":
 					{
@@ -3165,7 +3253,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 82,
+					"buffer": 83,
 					"file": "lib/node/index.js",
 					"settings":
 					{
@@ -3192,19 +3280,19 @@
 					"type": "text"
 				},
 				{
-					"buffer": 83,
+					"buffer": 84,
 					"file": "makefile",
 					"settings":
 					{
-						"buffer_size": 80,
+						"buffer_size": 0,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								75,
-								75
+								0,
+								0
 							]
 						],
 						"settings":
@@ -3218,7 +3306,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 84,
+					"buffer": 85,
 					"file": "/tmp/subl stdin 0xoezW.txt",
 					"settings":
 					{
@@ -3244,7 +3332,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 85,
+					"buffer": 86,
 					"file": "src/common/plugins/hooks.core/utils.js",
 					"settings":
 					{
@@ -3271,7 +3359,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 86,
+					"buffer": 87,
 					"file": "/tmp/subl stdin hpQ98V.txt",
 					"settings":
 					{
@@ -3297,7 +3385,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 87,
+					"buffer": 88,
 					"file": "/tmp/subl stdin ICDcxd.txt",
 					"settings":
 					{
@@ -3323,7 +3411,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 88,
+					"buffer": 89,
 					"file": "/tmp/subl stdin tgVUrp.txt",
 					"settings":
 					{
@@ -3349,7 +3437,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 89,
+					"buffer": 90,
 					"file": "src/node/plugins/hooks.transport.rabbitmq/utils.js",
 					"settings":
 					{
@@ -3376,7 +3464,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 90,
+					"buffer": 91,
 					"file": "src/node/server/index.js",
 					"settings":
 					{
@@ -3403,19 +3491,19 @@
 					"type": "text"
 				},
 				{
-					"buffer": 91,
+					"buffer": 92,
 					"file": "src/web/plugins/hooks.transport.jsonp/transport.js",
 					"settings":
 					{
-						"buffer_size": 2004,
+						"buffer_size": 2101,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1346,
-								1346
+								1235,
+								1235
 							]
 						],
 						"settings":
@@ -3424,13 +3512,39 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 646.0,
+						"translation.y": 735.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
-					"buffer": 92,
+					"buffer": 93,
+					"file": "/tmp/subl stdin kFRYz7.txt",
+					"settings":
+					{
+						"buffer_size": 0,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 94,
 					"file": "/tmp/subl stdin 9bp4ns.txt",
 					"settings":
 					{
@@ -3456,7 +3570,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 93,
+					"buffer": 95,
 					"file": "supervisord.conf",
 					"settings":
 					{
@@ -3482,19 +3596,19 @@
 					"type": "text"
 				},
 				{
-					"buffer": 94,
+					"buffer": 96,
 					"file": "package.json",
 					"settings":
 					{
-						"buffer_size": 787,
+						"buffer_size": 838,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								785,
-								785
+								0,
+								0
 							]
 						],
 						"settings":
@@ -3510,7 +3624,137 @@
 					"type": "text"
 				},
 				{
-					"buffer": 95,
+					"buffer": 97,
+					"file": "/tmp/subl stdin QcIQR9.txt",
+					"settings":
+					{
+						"buffer_size": 0,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 98,
+					"file": "/tmp/subl stdin TGoOat.txt",
+					"settings":
+					{
+						"buffer_size": 0,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 99,
+					"file": "/tmp/subl stdin 8wRPek.txt",
+					"settings":
+					{
+						"buffer_size": 0,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 100,
+					"file": "/tmp/subl stdin EjdQhM.txt",
+					"settings":
+					{
+						"buffer_size": 0,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 101,
+					"file": "/tmp/subl stdin pslA8P.txt",
+					"settings":
+					{
+						"buffer_size": 0,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 102,
 					"file": "/tmp/subl stdin 5J08Zd.txt",
 					"settings":
 					{
@@ -3536,7 +3780,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 96,
+					"buffer": 103,
 					"file": "/tmp/subl stdin ZwmL3a.txt",
 					"settings":
 					{
@@ -3562,7 +3806,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 97,
+					"buffer": 104,
 					"file": "/tmp/subl stdin 2ebJ4c.txt",
 					"settings":
 					{

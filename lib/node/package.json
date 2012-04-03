@@ -29,5 +29,7 @@
   "bin": {
     "daisy": "./bin/server"
   },
-  "mesh": true
+  "mesh": {
+    "load": "./make.json"
+  }
 }

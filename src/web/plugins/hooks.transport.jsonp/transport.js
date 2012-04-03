@@ -76,6 +76,12 @@ var Transport = Structr({
 				type: 'json'
 			}, onResponse, onError);
 
+		} else
+		//titanium?
+		if(typeof Titanium != undefined) {
+
+			alert("FUCK YEAH TITANIUM");
+			
 		} else {
 
 			$.ajax({
