@@ -1,3 +1,4 @@
+[![build status](https://secure.travis-ci.org/crcn/daisy.js.png)](http://travis-ci.org/crcn/daisy.js)
 ## Beanpole + Rabbitmq
 
 
