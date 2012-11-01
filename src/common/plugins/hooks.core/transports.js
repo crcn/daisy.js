@@ -5,7 +5,7 @@ vine = require('vine'),
 _ = require('underscore'),
 beanpoll = require('beanpoll'),
 crema = require('crema'),
-logger = require('winston').loggers.get('daisy'),
+logger = require('mesh-winston').loggers.get('daisy'),
 sprintf = require('sprintf').sprintf,
 EventEmitter = require('events').EventEmitter;
 

@@ -1,6 +1,6 @@
 [commands]
 publish = mesh merge:node, npm publish --force, git add -A, git commit -m "$@", git push origin master
-proj = subl --project project.sublime-project
+proj = subl .
 start = ./bin/server
 
 

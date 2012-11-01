@@ -1,7 +1,7 @@
 {
     "name": "daisy",
     "description": "Abstracted MQ for rabbitmq",
-    "version": "0.1.13",
+    "version": "0.2.0",
     "author": "Craig Condon",
     "repository": {
         "type": "git",
@@ -29,7 +29,5 @@
     "bin": {
         "daisy": "./bin/server"
     },
-    "mesh": {
-	"load": "./make.json"
-    }
+    "mesh": true
 }
